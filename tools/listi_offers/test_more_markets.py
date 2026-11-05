@@ -80,10 +80,10 @@ class MoreMarketTests(unittest.TestCase):
             with self.assertRaises(ValueError):c.validate_offer(offer)
 
     def test_previous_app_feed_never_contains_new_markets_or_methods(self):
-        data={'offers':[{'market':'Lidl','verificationMethod':'ocr_unitprice_crosscheck'},
-                        {'market':'MÜLLER','verificationMethod':'pdf_1kg_price'},
-                        {'market':'PENNY','verificationMethod':'pdf_1kg_price'},
-                        {'market':'AEZ','verificationMethod':'pdf_text_crosscheck'}],
+        data={'offers':[{'market':'Lidl','category':'pasta','verificationMethod':'ocr_unitprice_crosscheck'},
+                        {'market':'MÜLLER','category':'coffee','verificationMethod':'pdf_1kg_price'},
+                        {'market':'PENNY','category':'coffee','verificationMethod':'pdf_1kg_price'},
+                        {'market':'AEZ','category':'coffee','verificationMethod':'pdf_text_crosscheck'}],
               'sources':[{'market':name} for name in c.MARKET_PDF_HOSTS]}
         old=legacy(data)
         self.assertEqual([o['market'] for o in old['offers']],['Lidl'])

@@ -3,8 +3,8 @@
   "catalogVersion": "2026-11-05-automatic",
   "reviewedOn": "2026-11-05",
   "lastCheckedOn": "2026-11-05",
-  "generatedAt": "2026-11-05T13:19:48+00:00",
-  "coverage": "Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter und Kaffee. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
+  "generatedAt": "2026-11-05T13:44:55+00:00",
+  "coverage": "Automatische Auswahl: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",

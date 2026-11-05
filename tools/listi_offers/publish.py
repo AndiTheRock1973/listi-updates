@@ -14,13 +14,25 @@ def semantic(data):
     return {k: v for k, v in data.items() if k not in {'generatedAt', 'reviewedOn', 'catalogVersion'}}
 
 
-def legacy(data):
+def compatible(data, markets):
     result = dict(data)
-    result['offers'] = [o for o in data['offers'] if o['market'] in {'Lidl', 'PENNY'}
-                        and o.get('verificationMethod', 'manual') in {'manual', 'pdf_text_crosscheck', 'ocr_unitprice_crosscheck'}]
-    result['sources'] = [s for s in data['sources'] if s['market'] in {'Lidl', 'PENNY'}]
-    result['coverage'] = 'Automatische Auswahl aus Lidl Maisach und PENNY Eichenau: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.'
+    result['offers'] = [o for o in data['offers'] if o['market'] in markets
+                        and o.get('category') in {'pasta', 'butter', 'coffee'}
+                        and o.get('verificationMethod', 'manual') in {'manual', 'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price'}
+                        and not (len(markets) == 2 and o.get('verificationMethod') == 'pdf_1kg_price')]
+    result['sources'] = []
+    for source in data['sources']:
+        if source['market'] not in markets:continue
+        status=dict(source)
+        count=sum(o['market']==source['market'] for o in result['offers'])
+        status['count' if source.get('state') == 'ok' else 'retained']=count
+        result['sources'].append(status)
+    result['coverage'] = 'Automatische Auswahl: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.'
     return result
+
+
+def legacy(data):
+    return compatible(data, {'Lidl','PENNY'})
 
 
 def publish(data, path, headers):
@@ -61,7 +73,9 @@ def main():
     token = os.environ['GH_TOKEN']
     headers = {'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json',
                'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'Listi-Offers-Publisher'}
-    publish(data, 'data/wochenangebote-v2.json', headers)
+    from collect import MARKET_PDF_HOSTS
+    publish(data, 'data/wochenangebote-v3.json', headers)
+    publish(compatible(data, set(MARKET_PDF_HOSTS)), 'data/wochenangebote-v2.json', headers)
     publish(legacy(data), 'data/wochenangebote.json', headers)
 
 

@@ -22,6 +22,7 @@ import unicodedata
 from urllib.parse import urljoin, urlparse, urlencode
 from urllib.request import Request, urlopen
 import fitz
+import product_types
 
 ALLOWED_HOSTS = {
     'www.lidl.de', 'endpoints.leaflets.schwarz', 'assets.leaflets.schwarz',
@@ -215,6 +216,9 @@ def lines_from_words(words: list[Word]) -> list[dict]:
 
 
 def category_of(value: str) -> str | None:
+    extra = product_types.category_extra(value)
+    if extra is not None:
+        return extra if extra != 'reject' else None
     t = normalized(value)
     if re.search(r'buttermilch|croissant|keks|waffel|murb|geback|sauce|sosse|cappuccino|latte|margarine|streichfett|pflanzliche? butter|vegane? butter|gericht|suppe|salat|bolognese|gefull|tortell|ravioli|pesto|maschine|vollautomat|becher|fertig|gek[üu]hlt.*pasta', t):
         return None
@@ -235,7 +239,7 @@ def cents(value: str) -> int:
 
 def checked_price(caption: str, words: list[Word], minimum_size: float = 12) -> tuple[int, int, int] | None:
     t = normalized(caption)
-    amounts = re.findall(r'\bje\s*(\d{1,5}(?:\.\d{3})?)\s*g\b', t)
+    amounts = re.findall(r'\bje\s*(\d{1,5}(?:\.\d{3})?)\s*-?g\b', t)
     units = re.findall(r'\b1\s*kg\s*=\s*(\d{1,3}[.,]\d{2})\b', t)
     if len(amounts) != 1 or len(units) != 1:
         return None
@@ -300,6 +304,7 @@ def page_dates(header: str, source: Source) -> tuple[date, date] | None:
 
 def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[date, date],
                page_number: int, sha: str, method: str) -> dict | None:
+    caption = product_types.caption(caption)
     cat = category_of(caption)
     if not cat:
         return None
@@ -318,7 +323,7 @@ def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[da
     first_line = caption.splitlines()[0].strip('* .')
     if not first_line or len(first_line) > 45:
         return None
-    brand = first_line
+    brand = product_types.brand(caption, cat)
     variants = []
     if cat == 'coffee':
         if re.search(r'\bpads\b|kaffeepads', body):
@@ -333,6 +338,9 @@ def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[da
     attributes = [tag for tag, keyword in [('bio', 'bio'), ('wholegrain', 'vollkorn'),
                   ('glutenfree', 'glutenfrei'), ('lactosefree', 'laktosefrei')]
                   if re.search(r'\b' + keyword + r'\b', body)]
+    if cat in {'toast', 'beef'}:
+        variants, extra_attributes = product_types.tags(caption, cat)
+        attributes = sorted(set(attributes + extra_attributes))
     start, end = bounds
     identity = f'{source.market}|{normalized(title)}|{grams}|{start}|{price}'
     return {'id': hashlib.sha256(identity.encode()).hexdigest()[:24], 'market': source.market,
@@ -383,7 +391,7 @@ def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | 
                 continue
             preview = ocr(page, 1.5, directory, f'lidl-preview-{n}')
             preview_text = ' '.join(w.value for w in preview)
-            if not re.search(r'pasta|spaghetti|fusilli|nudeln|butter|kaffee|movenpick|melitta|barilla', normalized(preview_text)):
+            if not re.search(r'pasta|spaghetti|fusilli|nudeln|butter|kaffee|movenpick|melitta|barilla|toast|sandwich|rind|jungbullen|entrecote|rumpsteak', normalized(preview_text)):
                 continue
             words = confirm_price_words(page, ocr(page, 3, directory, f'lidl-detail-{n}'), directory)
             header = ' '.join(w.value for w in sorted(words, key=lambda w: w.x0) if w.y0 < 45)
@@ -420,18 +428,27 @@ def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | 
 
 
 def validate_offer(offer: dict) -> None:
-    if offer['market'] not in MARKET_PDF_HOSTS or offer['category'] not in {'pasta', 'coffee', 'butter'}:
+    if offer['market'] not in MARKET_PDF_HOSTS or offer['category'] not in {'pasta', 'coffee', 'butter', 'toast', 'beef'}:
         raise ValueError('Unexpected product mapping')
-    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price'}:
+    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price', 'pdf_100g_price'}:
         raise ValueError('Missing machine validation evidence')
     evidence = offer['evidence']
+    if offer['category'] in {'toast', 'beef'}:
+        if product_types.category_extra(evidence.get('caption', '')) != offer['category']:
+            raise ValueError('Product type is not supported by the printed caption')
+        expected_variants, _ = product_types.tags(evidence['caption'], offer['category'])
+        if set(offer['variants']) != set(expected_variants):
+            raise ValueError('Product variants disagree with printed caption')
     if not re.fullmatch(r'[0-9a-f]{64}', evidence.get('pdfSha256', '')):
         raise ValueError('PDF fingerprint missing')
     for key in ['pdfUrl', 'sourceUrl']:
         if urlparse(offer[key]).scheme != 'https' or urlparse(offer[key]).hostname not in ALLOWED_HOSTS:
             raise ValueError('Unexpected evidence URL')
-    if offer['verificationMethod'] == 'pdf_1kg_price':
-        if offer['quantityGrams'] != 1000 or not re.fullmatch(r'(?:1\s*kg|1[.]?000\s*g)', evidence.get('printedQuantity', ''), re.I):
+    if offer['verificationMethod'] in {'pdf_1kg_price', 'pdf_100g_price'}:
+        counter = offer['verificationMethod'] == 'pdf_100g_price'
+        if counter and (offer['category'] != 'beef' or offer['quantityGrams'] != 100 or not re.fullmatch(r'100\s*g', evidence.get('printedQuantity', ''), re.I)):
+            raise ValueError('Explicit beef price per 100 g missing')
+        if not counter and (offer['quantityGrams'] != 1000 or not re.fullmatch(r'(?:1\s*kg|1[.]?000\s*g)', evidence.get('printedQuantity', ''), re.I)):
             raise ValueError('Explicit 1 kg pack missing')
         if not re.fullmatch(r'\d{1,3}[.,]\d{2}', evidence.get('priceLine', '')) or cents(evidence['priceLine']) != offer['priceCents']:
             raise ValueError('Native package price mismatch')
@@ -491,13 +508,13 @@ def collect(today: date, directory: Path, previous: dict | None = None,
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return {'schemaVersion': 1, 'catalogVersion': f'{today.isoformat()}-automatic',
             'reviewedOn': today.isoformat(), 'lastCheckedOn': today.isoformat(), 'generatedAt': now,
-            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter und Kaffee. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
+            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
             'sources': statuses, 'offers': sorted(unique.values(), key=lambda o: (o['market'], o['title'], o['id']))}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote-v2.json'))
+    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote-v3.json'))
     parser.add_argument('--previous', type=Path)
     parser.add_argument('--local-pdfs', type=Path)
     parser.add_argument('--lidl-pages', help='Only for targeted local verification, e.g. 12,13')

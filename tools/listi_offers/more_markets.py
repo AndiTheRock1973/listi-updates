@@ -8,6 +8,7 @@ import re
 from urllib.parse import urljoin
 import fitz
 import collect as c
+import product_types
 
 ENTRY = {
  'ALDI SÜD': ('Alling · Gilchinger Straße 35', 'https://www.aldi-sued.de/prospekte'),
@@ -97,6 +98,7 @@ def clean(value):
 
 
 def canonical_caption(raw):
+ raw=product_types.caption(raw)
  raw=re.sub(r'(?<=[A-Za-zäöüÄÖÜ])-\n(?=[a-zäöü])', '', raw)
  s=clean(raw)
  # Omit substitute products, prepared foods and special pasta instead of suggesting them as normal staples.
@@ -174,6 +176,32 @@ def kilogram_offer(raw, panel, price, source, bounds, page, sha):
   'note':'Automatisch aus dem offiziellen Prospekt erfasst. Ausgewiesene 1-kg-Packung: Packungspreis entspricht dem Kilopreis. Sorte, Vorrat und Filialverfügbarkeit im Prospekt prüfen.'}
 
 
+def counter_offer(raw, panel, price, source, bounds, page, sha):
+ raw=product_types.caption(raw)
+ if c.category_of(raw)!='beef':return None
+ quantities=re.findall(r'(?<![\d.,/])(\d+)\s*g\b',clean(raw),re.I)
+ if quantities!=['100']:return None
+ if re.search(r'\bapp\b|coupon|normalpreis|treuepunkte|ihr\s*preis|mit\s*der|kundenkarte',c.normalized(' '.join(w.value for w in panel))):return None
+ price_cents=c.cents(price.value)
+ if not 10<=price_cents<=5000:return None
+ label=[]
+ for line in raw.splitlines():
+  if re.search(r'\d\s*g\b',clean(line),re.I):break
+  label.append(clean(line))
+ if not label:return None
+ title=' '.join(label);start,end=bounds
+ variants,attributes=product_types.tags(raw,'beef')
+ if re.search(r'\bbio\b',c.normalized(raw)):attributes.append('bio')
+ identity=f'{source.market}|{c.normalized(title)}|100|{start}|{price_cents}'
+ return {'id':hashlib.sha256(identity.encode()).hexdigest()[:24],'market':source.market,
+  'location':source.location,'title':title,'brand':product_types.brand(raw,'beef'),
+  'category':'beef','variants':variants,'attributes':attributes,'priceCents':price_cents,
+  'quantityGrams':100,'validFrom':start.isoformat(),'validTo':end.isoformat(),'pdfPage':page,
+  'pdfUrl':source.pdf_url,'sourceUrl':source.source_url,'verified':True,'verificationMethod':'pdf_100g_price',
+  'evidence':{'pdfSha256':sha,'caption':clean(raw),'printedQuantity':'100 g','priceLine':price.value},
+  'note':'Automatisch aus dem offiziellen Prospekt erfasst. Preis je 100 g, kein fester Packungspreis. Fleischart, Sorte, Bedingungen und Filialverfügbarkeit im Prospekt prüfen.'}
+
+
 def native_collect(pdf:Path, source:c.Source):
  sha=hashlib.sha256(pdf.read_bytes()).hexdigest();offers=[]
  with fitz.open(pdf) as document:
@@ -190,6 +218,10 @@ def native_collect(pdf:Path, source:c.Source):
   for number,page in enumerate(document,1):
    blocks,words=c.native_page(page); prices=price_lines(page)
    header=' '.join(b['text'] for b in blocks if b['bbox'][1]<55)
+   if source.market=='REWE':
+    # The already validated publication Monday is not a later-day product restriction.
+    printed=source.start.strftime('%d.%m.%Y')
+    header=re.sub(r'G(?:ü|ue|u)ltig\s+ab\s+'+re.escape(printed), '', header, flags=re.I)
    page_bounds=c.page_dates(header,source) or bounds
    if page_bounds[0]<bounds[0] or page_bounds[1]>bounds[1]:continue
    starts=re.findall(r'\bab\s+(?:Mo|Di|Mi|Do|Fr|Sa|So)\.\s*(\d{1,2})\.(\d{1,2})\.',header,re.I)
@@ -204,6 +236,9 @@ def native_collect(pdf:Path, source:c.Source):
    if re.search(r'\bnur\s+(?:am|mit|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)|coupon|treuepunkte',header,re.I):continue
    for block in blocks:
     raw=block['text']
+    if source.market=='EDEKA' and c.category_of(raw)=='beef' and '*' in raw:
+     if 'nicht in allen markten' in c.normalized(clean(page.get_text())):
+      continue  # Local butcher-counter applicability is not established by this regional flyer.
     if len(raw)>400 or c.category_of(raw) is None:continue
     parsed=canonical_caption(raw)
     if parsed:
@@ -212,7 +247,9 @@ def native_collect(pdf:Path, source:c.Source):
      caption,expected=None,None
     x0,y0,x1,y1=block['bbox']
     candidates=[p for p in prices if (expected is None or c.cents(p.value)==expected)
-                and x0-25<=p.x0<=x1+75 and y0-(100 if source.market=='MÜLLER' else 15)<=p.y0<=y1+115
+                and x0-25<=p.x0<=x1+75
+                and (y0-(100 if source.market=='MÜLLER' else 15)<=p.y0<=y1+115
+                     or y0-20<=p.y1<=y0+10)
                 and (source.market!='MÜLLER' or p.y0<y0)]
     if len(candidates)!=1:continue
     price=candidates[0]
@@ -220,7 +257,8 @@ def native_collect(pdf:Path, source:c.Source):
     rect=(min(x0,price.x0)-12,min(y0,price.y0)-35,max(x1,price.x1)+12,max(y1,price.y1)+12)
     panel=[w for w in words if c.in_rect(w,rect)]+[price]
     offer=(c.offer_from(caption,panel,source,page_bounds,number,sha,'pdf_text_crosscheck') if parsed
-           else kilogram_offer(raw,panel,price,source,page_bounds,number,sha))
+           else (kilogram_offer(raw,panel,price,source,page_bounds,number,sha)
+                 or counter_offer(raw,panel,price,source,page_bounds,number,sha)))
     if offer:
      offer['evidence']['caption']=clean(raw)[:600]
      offers.append(offer)
