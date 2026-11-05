@@ -26,7 +26,7 @@ jobs:
       - name: Erkennung vorbereiten
         run: |
           sudo apt-get update -qq
-                    sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-deu
+          sudo apt-get install -y --no-install-recommends tesseract-ocr-deu
           python3 -m venv /tmp/listi-venv
           /tmp/listi-venv/bin/pip install -r tools/listi_offers/requirements.txt
       - name: Sicherheits- und Zuordnungstests
