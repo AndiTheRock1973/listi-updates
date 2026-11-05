@@ -49,6 +49,18 @@ def resolve(market, today):
   start = date.fromisoformat(re.search(r'<from>([^<]+)', xml)[1])
   end = date.fromisoformat(re.search(r'<to>([^<]+)', xml)[1])
   return current(c.Source(market, location, urljoin(entry, 'blaetterkatalog/pdf/complete.pdf'), entry, start, end), today)
+ if market == 'REWE':
+  # Public official embed endpoint linked by the local REWE Alling offer page.
+  week = today.isocalendar().week
+  viewer = f'https://services.publitas.com/rewe/publications?week={week}&wwident=461921&feature=download'
+  payload = c.text(viewer)
+  link = re.search(r'"downloadPdfUrl"\s*:\s*"([^"]+)"', payload)
+  valid = re.search(r'(\d{1,2})\. Woche (20\d{2})\. Gültig ab (\d{2})\.(\d{2})\.(20\d{2})',html.unescape(payload))
+  if not link or not valid or '461921' not in link[1]:raise ValueError('REWE Alling edition metadata missing')
+  start=date(int(valid[5]),int(valid[4]),int(valid[3]))
+  if start!=date.fromisocalendar(int(valid[2]),int(valid[1]),1):raise ValueError('REWE week mismatch')
+  # Current weekly publication, conservatively bounded by Saturday, not extended indefinitely.
+  return current(c.Source(market,location,unescape(link[1]),entry,start,start+timedelta(days=5)),today)
  page = c.text(entry)
  if market == 'ALDI SÜD':
   match = re.search(r'Prospekt der aktuellen Woche[^<]*</[^>]+>[\s\S]{0,600}?href=["\']([^"\']+)', page, re.I)
@@ -60,18 +72,6 @@ def resolve(market, today):
   dates = sorted({date(int(y), int(m), int(d)) for d,m,y in dates})
   if not link or len(dates)<2 or (dates[-1]-dates[0]).days>6:raise ValueError('ALDI dates or PDF missing')
   return current(c.Source(market,location,unescape(link[1]),viewer,dates[0],dates[-1]),today)
- if market == 'REWE':
-  viewers = [unescape(u) for u in re.findall(r'https://services\.publitas\.com/rewe/publications\?[^"\'<>\s]+',page)]
-  viewer = next((u for u in viewers if 'wwident=461921' in u), None)
-  if not viewer:raise ValueError('REWE Alling viewer missing')
-  payload = c.text(viewer)
-  link = re.search(r'"downloadPdfUrl"\s*:\s*"([^"]+)"', payload)
-  valid = re.search(r'(\d{1,2})\. Woche (20\d{2})\. Gültig ab (\d{2})\.(\d{2})\.(20\d{2})',html.unescape(payload))
-  if not link or not valid:raise ValueError('REWE edition metadata missing')
-  start=date(int(valid[5]),int(valid[4]),int(valid[3]))
-  if start!=date.fromisocalendar(int(valid[2]),int(valid[1]),1):raise ValueError('REWE week mismatch')
-  # Current weekly publication, conservatively bounded by Saturday, not extended indefinitely.
-  return current(c.Source(market,location,unescape(link[1]),entry,start,start+timedelta(days=5)),today)
  if market == 'AEZ':
   selection=re.search(r'href=["\']([^"\']+)["\'][^>]*aria-label=["\']FFB-City Point["\']',page,re.I)
   if not selection:raise ValueError('AEZ City Point selection missing')

@@ -89,6 +89,16 @@ class MoreMarketTests(unittest.TestCase):
         self.assertEqual([o['market'] for o in old['offers']],['Lidl'])
         self.assertEqual({s['market'] for s in old['sources']},{'Lidl','PENNY'})
 
+    def test_rewe_uses_official_public_viewer_without_retail_landing_page(self):
+        payload = '<meta name="description" content="45. Woche 2026. Gültig ab 02.11.2026">' + '\n' + '\"downloadPdfUrl\": \"https://view.publitas.com/89773/example.pdf?filename=rewe_2026_wk45_461921.pdf\"'
+        with patch.object(c, 'text', return_value=payload) as fetch:
+            result=m.resolve('REWE',date(2026,11,5))
+        fetch.assert_called_once_with('https://services.publitas.com/rewe/publications?week=45&wwident=461921&feature=download')
+        self.assertEqual(result.start,date(2026,11,2))
+        self.assertEqual(result.end,date(2026,11,7))
+        with patch.object(c, 'text', return_value=payload.replace('461921','999999')):
+            with self.assertRaises(ValueError):m.resolve('REWE',date(2026,11,5))
+
     def test_permanent_edeka_entry_is_not_a_fixed_week_link(self):
         xml='<from>2026-11-08</from><to>2026-11-14</to>'
         with patch.object(c,'text',return_value=xml):
