@@ -1,0 +1,51 @@
+name: Listi Wochenangebote
+on:
+  workflow_dispatch:
+  schedule:
+    # Montag und Donnerstag, 05:23 UTC (06:23 MEZ / 07:23 MESZ).
+    - cron: '23 5 * * 1,4'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/listi-offers.yml'
+      - 'tools/listi_offers/**'
+permissions: {}
+concurrency:
+  group: listi-wochenangebote
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Erkennung vorbereiten
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends tesseract-ocr-deu
+          python3 -m venv /tmp/listi-venv
+          /tmp/listi-venv/bin/pip install -r tools/listi_offers/requirements.txt
+      - name: Sicherheits- und Zuordnungstests
+        run: /tmp/listi-venv/bin/python -m unittest discover -s tools/listi_offers -p 'test_*.py' -v
+      - name: Aktuelle Prospekte auswerten
+        run: /tmp/listi-venv/bin/python tools/listi_offers/collect.py --previous data/wochenangebote.json --output /tmp/listi-new.json
+      - name: Ergebnis anzeigen
+        run: |
+          /tmp/listi-venv/bin/python - <<'PY'
+          import json, os
+          data = json.load(open('/tmp/listi-new.json'))
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:
+              out.write('## Listi Wochenangebote\n\n')
+              out.write(data['coverage'] + '\n\n')
+              for source in data['sources']:
+                  out.write(f"- {source['market']}: {source['state']}, {source.get('count', 0)} neu erkannt, {source.get('retained', 0)} übernommen\n")
+              out.write('\nUnklare Treffer werden ausgelassen. Keine vollständige Angebotssuche.\n')
+          PY
+      - name: Angebotsdatei veröffentlichen
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: /tmp/listi-venv/bin/python tools/listi_offers/publish.py /tmp/listi-new.json
