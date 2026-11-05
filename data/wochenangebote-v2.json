@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "2026-11-05-automatic",
+  "reviewedOn": "2026-11-05",
+  "lastCheckedOn": "2026-11-05",
+  "generatedAt": "2026-11-05T12:49:35+00:00",
+  "coverage": "Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter und Kaffee. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
+  "sources": [
+    {
+      "market": "PENNY",
+      "state": "ok",
+      "count": 2,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "Lidl",
+      "state": "ok",
+      "count": 1,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "ALDI SÜD",
+      "state": "ok",
+      "count": 1,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "EDEKA",
+      "state": "ok",
+      "count": 2,
+      "validFrom": "2026-11-01",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "REWE",
+      "state": "ok",
+      "count": 0,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "AEZ",
+      "state": "ok",
+      "count": 4,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    },
+    {
+      "market": "MÜLLER",
+      "state": "ok",
+      "count": 1,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
+    }
+  ],
+  "offers": [
+    {
+      "id": "07b8f04b796cc10f75940d4a",
+      "market": "AEZ",
+      "location": "Fürstenfeldbruck · City Point",
+      "title": "De Cecco Italienische Pasta oder Pastaspezialitäten",
+      "brand": "De Cecco",
+      "category": "pasta",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 129,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 1,
+      "pdfUrl": "https://aez.de/wp-content/uploads/AEZ_KW45_26.pdf",
+      "sourceUrl": "https://aez.de/wochenangebote/",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "cb7fe2be8b6b931c8237404cc83b49f84f004130165ea31bb9791b5b977d224e",
+        "printedUnitPriceCents": 258,
+        "caption": "De Cecco Italienische Pasta oder Pasta- spezialitäten versch. Sorten 500 g Packung (1 kg = 2.58)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "49e3132ea76c48b8fe262bcf",
+      "market": "AEZ",
+      "location": "Fürstenfeldbruck · City Point",
+      "title": "Jacobs Kaffee Krönung verschiedene Sorten",
+      "brand": "Jacobs",
+      "category": "coffee",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 599,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 1,
+      "pdfUrl": "https://aez.de/wp-content/uploads/AEZ_KW45_26.pdf",
+      "sourceUrl": "https://aez.de/wochenangebote/",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "cb7fe2be8b6b931c8237404cc83b49f84f004130165ea31bb9791b5b977d224e",
+        "printedUnitPriceCents": 1198,
+        "caption": "Jacobs Kaffee Krönung verschiedene Sorten 500 g Packung (1 kg = 11.98)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "fc26e87e71aa1d519b058037",
+      "market": "AEZ",
+      "location": "Fürstenfeldbruck · City Point",
+      "title": "Lavazza Caffè Crema oder Espresso versch. Sorten",
+      "brand": "Lavazza",
+      "category": "coffee",
+      "variants": [
+        "espresso"
+      ],
+      "attributes": [],
+      "priceCents": 1399,
+      "quantityGrams": 1000,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 1,
+      "pdfUrl": "https://aez.de/wp-content/uploads/AEZ_KW45_26.pdf",
+      "sourceUrl": "https://aez.de/wochenangebote/",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "pdfSha256": "cb7fe2be8b6b931c8237404cc83b49f84f004130165ea31bb9791b5b977d224e",
+        "caption": "Lavazza Caffè Crema oder Espresso versch. Sorten 1.000 g Packung",
+        "printedQuantity": "1.000 g",
+        "priceLine": "13.99"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Ausgewiesene 1-kg-Packung: Packungspreis entspricht dem Kilopreis. Sorte, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "e2f28fe45b533c8b9dfd9a55",
+      "market": "AEZ",
+      "location": "Fürstenfeldbruck · City Point",
+      "title": "Weihenstephan Butter oder Streichzart",
+      "brand": "Weihenstephan",
+      "category": "butter",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 125,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 1,
+      "pdfUrl": "https://aez.de/wp-content/uploads/AEZ_KW45_26.pdf",
+      "sourceUrl": "https://aez.de/wochenangebote/",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "cb7fe2be8b6b931c8237404cc83b49f84f004130165ea31bb9791b5b977d224e",
+        "printedUnitPriceCents": 500,
+        "caption": "Weihen- stephan Butter oder Streichzart 250 g Packung (1 kg = 5.00)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "98021d69a8772ee2902bf9e6",
+      "market": "ALDI SÜD",
+      "location": "Alling · Gilchinger Straße 35",
+      "title": "BARISSIMO Kaffee-Pads",
+      "brand": "BARISSIMO",
+      "category": "coffee",
+      "variants": [
+        "pads"
+      ],
+      "attributes": [],
+      "priceCents": 189,
+      "quantityGrams": 140,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 7,
+      "pdfUrl": "https://view.publitas.com/73714/3466524/pdfs/3e940183-2f4d-4fc5-9b0b-6e24ef3f1098.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "sourceUrl": "https://prospekt.aldi-sued.de/kw45-26-op-mp",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "91c6e0cca5df1f69fa4c2759900fb6082d90dcff9584b55638cf6ec626ee76d2",
+        "printedUnitPriceCents": 1350,
+        "caption": "BARISSIMO Kaffee-Pads Versch. Sorten, je 20 x 7 g = 140-g-Packung; kg-Preis 13.50"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "97b8fcfc1e56ae1c04b8b17f",
+      "market": "EDEKA",
+      "location": "Eichenau · Hauptstraße 55",
+      "title": "De Cecco Pasta aus Hartweizengrieß",
+      "brand": "De Cecco",
+      "category": "pasta",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 129,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 10,
+      "pdfUrl": "https://blaetterkatalog.edeka.de/SUEDBAYERN/NeukaufSued/blaetterkatalog/pdf/complete.pdf",
+      "sourceUrl": "https://blaetterkatalog.edeka.de/SUEDBAYERN/NeukaufSued/index.html",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "506ac8a5edbf591db84a9f47ccfa6eb3cb5fb31418e136cc07bd8bbaab97a1bf",
+        "printedUnitPriceCents": 258,
+        "caption": "De Cecco Pasta aus Hartweizengrieß je 500g Beutel 1kg=2.58"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "724a1b8d5c865e8530d52ef1",
+      "market": "EDEKA",
+      "location": "Eichenau · Hauptstraße 55",
+      "title": "Nescafé Gold löslicher Kaffee",
+      "brand": "Nescafé Gold",
+      "category": "coffee",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 699,
+      "quantityGrams": 200,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 11,
+      "pdfUrl": "https://blaetterkatalog.edeka.de/SUEDBAYERN/NeukaufSued/blaetterkatalog/pdf/complete.pdf",
+      "sourceUrl": "https://blaetterkatalog.edeka.de/SUEDBAYERN/NeukaufSued/index.html",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "506ac8a5edbf591db84a9f47ccfa6eb3cb5fb31418e136cc07bd8bbaab97a1bf",
+        "printedUnitPriceCents": 3495,
+        "caption": "Nescafé Gold löslicher Kaffee je 200g Glas 1kg=34.95"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "6f1480cb15e11933dc427294",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "BARILLA Pasta",
+      "brand": "BARILLA",
+      "category": "pasta",
+      "variants": [
+        "spaghetti",
+        "fusilli"
+      ],
+      "attributes": [],
+      "priceCents": 99,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 13,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a17709-8249-7615-b563-dc7ab8c43523/Aktionsprospekt-02-11-2026-07-11-2026-04.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-02-11-2026-07-11-2026-d34d64/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "ocr_unitprice_crosscheck",
+      "evidence": {
+        "pdfSha256": "a50d861b2384fc4fb8d0881041d282f80e814c60b7c4dd173e9c4d3a9165ccfe",
+        "printedUnitPriceCents": 198,
+        "caption": "BARILLA Pasta Versch. Sorten. Je500g 1kg=1.98"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "aa675fea6ee57f94925c8251",
+      "market": "MÜLLER",
+      "location": "Puchheim · Dornierstraße 3",
+      "title": "KÄFER Kaffee Bohnen",
+      "brand": "KÄFER",
+      "category": "coffee",
+      "variants": [
+        "beans"
+      ],
+      "attributes": [],
+      "priceCents": 1099,
+      "quantityGrams": 1000,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 11,
+      "pdfUrl": "https://dam.prod.ecom.mueller.de/3543451a-1f79-49ad-ac8e-b85ef98580e2/4d49fb8aee97a248b1f847eb74cc4c6a-20261013_drogerie_d09_-_02_11_2026_-_gj_26_27_de_-_d09_-_drogerie_haushalt-_02_11_2026_-_24_seiten.pdf",
+      "sourceUrl": "https://www.mueller.de/prospekte/",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "pdfSha256": "284cb0976dcf096bd6ba1b6124c3d6eb693f2af9c5325e8301ca07c24fb55abe",
+        "caption": "KÄFER Kaffee Bohnen 1 kg versch. Sorten",
+        "printedQuantity": "1 kg",
+        "priceLine": "10.99"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Ausgewiesene 1-kg-Packung: Packungspreis entspricht dem Kilopreis. Sorte, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "95b0c81200fd645a4084cc29",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "FRAU ANTJE Beste Butter Streichzart",
+      "brand": "FRAU ANTJE",
+      "category": "butter",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 129,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07",
+      "pdfPage": 12,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1413692/3/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1413692",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "af1698debccd294a4fe2f530c7fc60972189bf16cdf9397e7331269293195a08",
+        "printedUnitPriceCents": 516,
+        "caption": "FRAU ANTJE  Beste Butter Streichzart, je 250 g (1 kg = 5.16)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "5b9ab29276fe8b036ace0d69",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "MELITTA Kaffeepads Barista Crema",
+      "brand": "MELITTA",
+      "category": "coffee",
+      "variants": [
+        "pads"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 107,
+      "validFrom": "2026-11-05",
+      "validTo": "2026-11-07",
+      "pdfPage": 50,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1413692/3/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1413692",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "af1698debccd294a4fe2f530c7fc60972189bf16cdf9397e7331269293195a08",
+        "printedUnitPriceCents": 1860,
+        "caption": "MELITTA Kaffeepads Barista Crema, je 107 g (1 kg = 18.60)  oder"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    }
+  ]
+}

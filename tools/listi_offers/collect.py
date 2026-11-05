@@ -1,4 +1,4 @@
-"""Conservative public-prospect importer for Listi's first two markets.
+"""Conservative official-prospect importer for Listi's seven configured markets.
 No AI API, credentials, browser fingerprint spoofing or retailer account access.
 Uncertain prices/conditions are omitted; the result is not an exhaustive catalog.
 """
@@ -26,8 +26,21 @@ import fitz
 ALLOWED_HOSTS = {
     'www.lidl.de', 'endpoints.leaflets.schwarz', 'assets.leaflets.schwarz',
     'www.penny.de', 'penny-publish.blaetterkatalog.de',
+    'www.aldi-sued.de', 'prospekt.aldi-sued.de', 'view.publitas.com',
+    'www.rewe.de', 'services.publitas.com', 'blaetterkatalog.edeka.de',
+    'aez.de', 'www.mueller.de', 'dam.prod.ecom.mueller.de',
 }
 MAX_BYTES = 200_000_000
+MARKET_PDF_HOSTS = {
+    'Lidl': 'assets.leaflets.schwarz',
+    'PENNY': 'penny-publish.blaetterkatalog.de',
+    'ALDI SÜD': 'view.publitas.com',
+    'REWE': 'view.publitas.com',
+    'EDEKA': 'blaetterkatalog.edeka.de',
+    'AEZ': 'aez.de',
+    'MÜLLER': 'dam.prod.ecom.mueller.de',
+}
+LOCAL_NAMES = {'ALDI SÜD': 'aldi', 'MÜLLER': 'mueller'}
 
 
 def normalized(text: str) -> str:
@@ -203,7 +216,7 @@ def lines_from_words(words: list[Word]) -> list[dict]:
 
 def category_of(value: str) -> str | None:
     t = normalized(value)
-    if re.search(r'buttermilch|croissant|keks|waffel|murb|geback|sauce|gericht|suppe|salat|bolognese|gefull|tortell|ravioli|pesto|maschine|vollautomat|becher|fertig|gek[üu]hlt.*pasta', t):
+    if re.search(r'buttermilch|croissant|keks|waffel|murb|geback|sauce|sosse|cappuccino|latte|margarine|streichfett|pflanzliche? butter|vegane? butter|gericht|suppe|salat|bolognese|gefull|tortell|ravioli|pesto|maschine|vollautomat|becher|fertig|gek[üu]hlt.*pasta', t):
         return None
     if re.search(r'\bbutter\b', t):
         return 'butter'
@@ -211,7 +224,7 @@ def category_of(value: str) -> str | None:
         if 'gekuhlt' in t:
             return None
         return 'pasta'
-    if re.search(r'\b(kaffee|kaffeepads|kaffeebohnen)\b', t) or ('movenpick' in t and 'himmlische' in t and 'gemahlen' in t):
+    if re.search(r'\b(kaffee|kaffeepads|kaffeebohnen)\b', t) or ('lavazza' in t and re.search(r'\b(caffe|espresso)\b', t)) or ('movenpick' in t and 'himmlische' in t and 'gemahlen' in t):
         return 'coffee'
     return None
 
@@ -235,7 +248,7 @@ def checked_price(caption: str, words: list[Word], minimum_size: float = 12) -> 
         return None
     candidates = []
     for word in words:
-        if word.size < minimum_size or word.confidence < 70:
+        if word.size < minimum_size or word.confidence < 70 or '%' in word.value or word.value.strip().startswith('-'):
             continue
         clean = re.sub(r'[^0-9.,]', '', word.value)
         if re.fullmatch(r'\d{1,3}[.,]\d{2}', clean):
@@ -293,7 +306,7 @@ def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[da
     body = normalized(caption)
     panel_text = normalized(' '.join(w.value for w in panel))
     # Conditions may be graphic text outside the caption. Exclude such panels.
-    if re.search(r'\bapp\b|lidl|\bplus\b|coupon|normalpreis|ohne penny', panel_text):
+    if re.search(r'\bapp\b|lidl|\bplus\b|coupon|normalpreis|ohne penny|ihr\s*preis|mit\s*der|kundenkarte', panel_text):
         return None
     check = checked_price(caption, panel)
     if check is None:
@@ -407,9 +420,9 @@ def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | 
 
 
 def validate_offer(offer: dict) -> None:
-    if offer['market'] not in {'Lidl', 'PENNY'} or offer['category'] not in {'pasta', 'coffee', 'butter'}:
+    if offer['market'] not in MARKET_PDF_HOSTS or offer['category'] not in {'pasta', 'coffee', 'butter'}:
         raise ValueError('Unexpected product mapping')
-    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck'}:
+    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price'}:
         raise ValueError('Missing machine validation evidence')
     evidence = offer['evidence']
     if not re.fullmatch(r'[0-9a-f]{64}', evidence.get('pdfSha256', '')):
@@ -417,28 +430,41 @@ def validate_offer(offer: dict) -> None:
     for key in ['pdfUrl', 'sourceUrl']:
         if urlparse(offer[key]).scheme != 'https' or urlparse(offer[key]).hostname not in ALLOWED_HOSTS:
             raise ValueError('Unexpected evidence URL')
-    expected = round(offer['priceCents'] * 1000 / offer['quantityGrams'])
-    if abs(expected - evidence['printedUnitPriceCents']) > 1:
-        raise ValueError('Unit-price mismatch')
+    if offer['verificationMethod'] == 'pdf_1kg_price':
+        if offer['quantityGrams'] != 1000 or not re.fullmatch(r'(?:1\s*kg|1[.]?000\s*g)', evidence.get('printedQuantity', ''), re.I):
+            raise ValueError('Explicit 1 kg pack missing')
+        if not re.fullmatch(r'\d{1,3}[.,]\d{2}', evidence.get('priceLine', '')) or cents(evidence['priceLine']) != offer['priceCents']:
+            raise ValueError('Native package price mismatch')
+    else:
+        expected = round(offer['priceCents'] * 1000 / offer['quantityGrams'])
+        if abs(expected - evidence['printedUnitPriceCents']) > 1:
+            raise ValueError('Unit-price mismatch')
     start, end = date.fromisoformat(offer['validFrom']), date.fromisoformat(offer['validTo'])
     if not 0 <= (end - start).days <= 6:
         raise ValueError('Invalid validity range')
     if not 1 <= offer['pdfPage'] <= 150 or not 50 <= offer['quantityGrams'] <= 2500 or not 10 <= offer['priceCents'] <= 5000:
         raise ValueError('Invalid price, size or page')
-    expected_host = 'assets.leaflets.schwarz' if offer['market'] == 'Lidl' else 'penny-publish.blaetterkatalog.de'
-    if urlparse(offer['pdfUrl']).hostname != expected_host:
+    expected_host = MARKET_PDF_HOSTS[offer['market']]
+    if (urlparse(offer['pdfUrl']).hostname != expected_host
+        or (offer['market'] == 'ALDI SÜD' and not urlparse(offer['pdfUrl']).path.startswith('/73714/'))
+        or (offer['market'] == 'REWE' and not urlparse(offer['pdfUrl']).path.startswith('/89773/'))):
         raise ValueError('Retailer and PDF host disagree')
     if not evidence.get('caption') or not offer.get('title') or not offer.get('brand'):
         raise ValueError('Missing product evidence')
 
 
 def collect(today: date, directory: Path, previous: dict | None = None,
-            local: Path | None = None, lidl_pages: list[int] | None = None) -> dict:
+            local: Path | None = None, lidl_pages: list[int] | None = None, include_all: bool = True) -> dict:
     offers, statuses = [], []
-    for market, resolver, importer in [('PENNY', penny_source, collect_penny), ('Lidl', lidl_source, collect_lidl)]:
+    jobs = [('PENNY', penny_source, collect_penny), ('Lidl', lidl_source, collect_lidl)]
+    if include_all:
+        import more_markets
+        jobs.extend((market, lambda day, m=market: more_markets.resolve(m, day), more_markets.native_collect)
+                    for market in more_markets.ENTRY)
+    for market, resolver, importer in jobs:
         try:
             source = resolver(today)
-            pdf = directory / f'{market.lower()}.pdf'
+            pdf = directory / f'{LOCAL_NAMES.get(market, market.lower())}.pdf'
             if local and (local / pdf.name).exists():
                 pdf = local / pdf.name
             else:
@@ -464,14 +490,14 @@ def collect(today: date, directory: Path, previous: dict | None = None,
     unique = {offer['id']: offer for offer in offers}
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return {'schemaVersion': 1, 'catalogVersion': f'{today.isoformat()}-automatic',
-            'reviewedOn': today.isoformat(), 'generatedAt': now,
-            'coverage': 'Automatische Auswahl aus Lidl Maisach und PENNY Eichenau: Pasta, Butter und Kaffee. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
+            'reviewedOn': today.isoformat(), 'lastCheckedOn': today.isoformat(), 'generatedAt': now,
+            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter und Kaffee. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
             'sources': statuses, 'offers': sorted(unique.values(), key=lambda o: (o['market'], o['title'], o['id']))}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote.json'))
+    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote-v2.json'))
     parser.add_argument('--previous', type=Path)
     parser.add_argument('--local-pdfs', type=Path)
     parser.add_argument('--lidl-pages', help='Only for targeted local verification, e.g. 12,13')

@@ -41,7 +41,7 @@ class ExtractionTests(unittest.TestCase):
                          (date(2026, 12, 28), date(2027, 1, 2)))
 
     def test_not_related_food(self):
-        for item in ['Butterkekse', 'Buttermilch', 'Pasta Sauce', 'Kaffeemaschine', 'Tortellini Pasta', 'Pesto']:
+        for item in ['Butterkekse', 'Buttermilch', 'Pasta Sauce', 'Pasta-Soße', 'Kaffeemaschine', 'Tortellini Pasta', 'Pesto', 'Vegane Butter', 'Margarine Butter', 'Kaffee Cappuccino']:
             self.assertIsNone(c.category_of(item), item)
 
     def test_app_condition_excluded(self):
@@ -90,7 +90,7 @@ class ExtractionTests(unittest.TestCase):
              patch.object(c, 'lidl_source', side_effect=ValueError('changed source')), \
              patch.object(c, 'fetch', return_value=b'%PDF-test'), \
              patch.object(c, 'collect_penny', return_value=[]):
-            result = c.collect(date(2026, 11, 5), Path(tmp), previous)
+            result = c.collect(date(2026, 11, 5), Path(tmp), previous, include_all=False)
         self.assertEqual(result['offers'], [previous['offers'][0]])
         self.assertEqual(result['offers'][0]['validTo'], '2026-11-07')
         self.assertEqual(result['sources'][1]['state'], 'failed')
@@ -100,7 +100,7 @@ class ExtractionTests(unittest.TestCase):
              patch.object(c, 'penny_source', side_effect=ValueError('source down')), \
              patch.object(c, 'lidl_source', side_effect=ValueError('source down')):
             with self.assertRaises(RuntimeError):
-                c.collect(date(2026, 11, 5), Path(tmp))
+                c.collect(date(2026, 11, 5), Path(tmp), include_all=False)
 
     def test_timestamp_alone_does_not_cause_commit(self):
         self.assertEqual(semantic({'offers': [], 'generatedAt': 'one', 'reviewedOn': 'one'}),
