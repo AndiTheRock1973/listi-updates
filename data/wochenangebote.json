@@ -3,7 +3,7 @@
   "catalogVersion": "2026-11-06-automatic",
   "reviewedOn": "2026-11-06",
   "lastCheckedOn": "2026-11-06",
-  "generatedAt": "2026-11-06T07:00:36+00:00",
+  "generatedAt": "2026-11-06T07:06:47+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -15,10 +15,9 @@
     },
     {
       "market": "Lidl",
-      "state": "ok",
-      "count": 1,
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-07"
+      "state": "failed",
+      "retained": 1,
+      "reason": "[Errno 2] No such file or directory: 'tesseract'"
     }
   ],
   "offers": [
