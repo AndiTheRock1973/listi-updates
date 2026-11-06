@@ -31,7 +31,7 @@ def money(word,ocr=False):
 def offer(raw,words,source,bounds,page,sha,box=None,ocr=False,price_words=None):
  import collect as c
  raw=re.sub(r'(?<=[A-Za-zäöüÄÖÜ])-\n(?=[a-zäöü])','',caption(raw));cat=c.category_of(raw)
- if cat not in {'milk','cola','pasta_sauce'}:return None
+ if cat not in {'milk','cola','pasta_sauce','cream'}:return None
  parsed=details(raw)
  if parsed is None:return None
  ml,unit,pack=parsed
@@ -63,7 +63,12 @@ def offer(raw,words,source,bounds,page,sha,box=None,ocr=False,price_words=None):
   if re.search(r'\d\s*[- ]?(?:ml|l)\b',line,re.I):break
   label.append(line.strip())
  if not label:return None
- title=' '.join(label).strip(' *.,');variants,attributes=pantry.tags(raw,cat);start,end=bounds
+ title=' '.join(label).strip(' *.,')
+ if cat=='cream':
+  import staples
+  variants,attributes=staples.tags(raw,cat)
+ else:variants,attributes=pantry.tags(raw,cat)
+ start,end=bounds
  identity=f'{source.market}|{normal(title)}|{ml}ml|{start}|{price}'
  evidence={'pdfSha256':sha,'caption':re.sub(r'\s+',' ',raw)[:800]}
  if unit is not None:evidence['printedUnitPriceCents']=unit
@@ -82,7 +87,7 @@ def offer(raw,words,source,bounds,page,sha,box=None,ocr=False,price_words=None):
 
 def validate_volume(offer):
  from collect import cents
- if 'quantityGrams' in offer or offer['category'] not in {'milk','cola','pasta_sauce'}:raise ValueError('Volume/mass confusion')
+ if 'quantityGrams' in offer or offer['category'] not in {'milk','cola','pasta_sauce','cream'}:raise ValueError('Volume/mass confusion')
  ml=offer.get('quantityMl');e=offer['evidence'];p=offer['priceCents']
  if type(ml) is not int or not 100<=ml<=30000:raise ValueError('Invalid volume')
  parsed=details(e['caption'])

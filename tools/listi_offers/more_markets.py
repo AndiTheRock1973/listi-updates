@@ -11,6 +11,8 @@ import collect as c
 import product_types
 import pantry
 import pantry_fields
+import staples
+import staple_fields
 
 ENTRY = {
  'ALDI SÜD': ('Alling · Gilchinger Straße 35', 'https://www.aldi-sued.de/prospekte'),
@@ -180,7 +182,7 @@ def kilogram_offer(raw, panel, price, source, bounds, page, sha):
 
 def counter_offer(raw, panel, price, source, bounds, page, sha):
  raw=product_types.caption(raw)
- if c.category_of(raw) not in {'beef','sausage','cheese'}:return None
+ if c.category_of(raw) not in {'beef','sausage','cheese','poultry','pork'}:return None
  quantities=re.findall(r'(?<![\d.,/])(\d+)\s*g\b',clean(raw),re.I)
  if quantities!=['100']:return None
  if re.search(r'\bapp\b|coupon|normalpreis|treuepunkte|ihr\s*preis|mit\s*der|kundenkarte',c.normalized(' '.join(w.value for w in panel))):return None
@@ -193,7 +195,7 @@ def counter_offer(raw, panel, price, source, bounds, page, sha):
  if not label:return None
  title=' '.join(label);start,end=bounds
  category=c.category_of(raw)
- variants,attributes=(product_types.tags(raw,'beef') if category=='beef' else pantry.tags(raw,category))
+ variants,attributes=(product_types.tags(raw,'beef') if category=='beef' else (staples.tags(raw,category) if category in staples.CATEGORIES else pantry.tags(raw,category)))
  if re.search(r'\bbio\b',c.normalized(raw)):attributes.append('bio')
  identity=f'{source.market}|{c.normalized(title)}|100|{start}|{price_cents}'
  return {'id':hashlib.sha256(identity.encode()).hexdigest()[:24],'market':source.market,
@@ -239,10 +241,15 @@ def native_collect(pdf:Path, source:c.Source):
    if re.search(r'\bnur\s+(?:am|mit|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)|coupon|treuepunkte',header,re.I):continue
    for block in blocks:
     raw=block['text']
-    if source.market=='EDEKA' and c.category_of(raw) in {'beef','sausage','cheese'} and '*' in raw:
+    if source.market=='EDEKA' and c.category_of(raw) in {'beef','sausage','cheese','poultry','pork'} and '*' in raw:
      if 'nicht in allen markten' in c.normalized(clean(page.get_text())):
       continue  # Local butcher-counter applicability is not established by this regional flyer.
-    if len(raw)>400 or c.category_of(raw) is None:continue
+    if len(raw)>800 or c.category_of(raw) is None:continue
+    if c.category_of(raw) in staples.CATEGORIES:
+     found=staple_fields.offer(raw,words+prices,source,page_bounds,number,sha,block['bbox'],prices)
+     if found:
+      offers.append(found)
+      continue
     if c.category_of(raw) in pantry.CATEGORIES:
      found=pantry_fields.offer(raw, words+prices, source, page_bounds, number, sha, box=block['bbox'],price_words=prices)
      if found:
@@ -269,7 +276,8 @@ def native_collect(pdf:Path, source:c.Source):
                  or counter_offer(raw,panel,price,source,page_bounds,number,sha)))
     if offer:
      offer['evidence']['caption']=clean(raw)[:600]
-     if offer['category'] in pantry.CATEGORIES:
-      offer['variants'],offer['attributes']=pantry.tags(offer['evidence']['caption'],offer['category'])
+     if offer['category'] in (pantry.CATEGORIES | staples.CATEGORIES):
+      classifier=staples if offer['category'] in staples.CATEGORIES else pantry
+      offer['variants'],offer['attributes']=classifier.tags(offer['evidence']['caption'],offer['category'])
      offers.append(offer)
  return offers

@@ -27,6 +27,7 @@ class ProductTypeTests(unittest.TestCase):
                'Suppe mit Rind\n750 ml','Entrecote Merlot Cabernet\n0,75 l Flasche',
                'Filetsteak vom Rind versch. Gewichte z. B. 259 g']:
    if 'salami' in text.lower():self.assertEqual(c.category_of(text),'sausage')
+   elif text.startswith('Schweine-'):self.assertEqual(c.category_of(text),'pork')
    else:self.assertIsNone(c.category_of(text),text)
  def test_exact_food_types(self):
   self.assertEqual(t.tags('Rinder-Hackfleisch 5% Fett, zum Braten','beef')[0],['mince'])

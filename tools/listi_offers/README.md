@@ -1,41 +1,33 @@
-# Listi: tägliche Angebotsauswahl, ab 1.9.0 zehn Produktgruppen
+# Listi 1.10: 21 supported grocery groups
 
-Sieben bestehende Quellen, täglicher Lauf. Neu: Milch, Nudelsauce, Cola, Wurst und
-Käse. Vorhanden bleiben Pasta, Butter, Kaffee, Toast und reines Rindfleisch.
-Keine vollständige Erfassung. Händlerlayouts und OCR können Treffer übersehen.
+Add bread, eggs, yogurt, quark, cream, poultry, pork, fruit, vegetables, rice,
+flour to the existing ten groups. `staples.py` defines conservative categories
+and explicit product variants. `staple_fields.py` validates counts, produce
+price bases and gram quantities. `pantry_fields.py` also handles cream in ml.
 
-`pantry.py` klassifiziert die neuen Produktgruppen und ausdrücklich belegte
-Eigenschaften. `pantry_fields.py` prüft Mengen in ml, Liter-Grundpreise und Pfand.
-Zero wird nicht aus „verschiedene Sorten“ abgeleitet. Wurst und Käse sowie
-Kuhmilch und Pflanzenprodukte werden getrennt. Nicht belegte Kombinationen von
-Eigenschaften unterschiedlicher Milchsorten werden vom App-Matcher ausgelassen.
-`product_types.py` behandelt Toast und reines Rindfleisch. Preise je 100 g sind
-Preisbezugsmengen und keine festen Packungen.
+Unknown/ambiguous categories or prices are omitted. No synthetic offers enter
+published feeds. Nonfood plant bulbs, vitamin tablets, fruit flavours, prepared
+meals, tomato puree, mixed meat and unclear product/price associations must not
+be treated as fresh groceries. Source changes can still produce omissions.
+This is a partial technical extraction, not complete market coverage.
 
-Preis und Produktfeld müssen räumlich und rechnerisch zusammenpassen. Unklare
-Zuordnung, App-Sonderpreise, variable Beispielgewichte und eingeschränkt regionale
-EDEKA-Thekenangebote werden ausgelassen. `verified` heißt technische Prüfungen,
-keine menschliche Einzelbestätigung. Produkt und Filialverfügbarkeit prüfen.
+Piece amounts use quantityUnit=piece and quantityCount; never quantityGrams.
+Methods pdf_count_crosscheck (pack and printed piece price) and pdf_piece_price
+(explicit single item) have separate validation. Mass/volume proof stays separate.
+Per-kg/100g loose prices identify price bases, not fixed packages.
 
-Ausgaben (alle unter data/):
-- v4: zehn Gruppen, schemaVersion 2, für App 1.9.0.
-- v3: fünf Gruppen, schemaVersion 1, für App 1.8.0.
-- v2: drei Gruppen, schemaVersion 1, für App 1.7.0.
-- ohne Versionssuffix: drei Gruppen, Lidl/PENNY, für App 1.6.0.
+Feed v5 schema 3 is for app 1.10. v4 schema 2 is filtered to the former ten
+groups and no counts. v3/v2/v1 retain earlier formats. Publication recalculates
+per-source counts. Full source failure never overwrites published data. Partial
+failure keeps only still-valid old records, with original expiry dates.
 
-`publish.py` filtert alte Formate und berechnet deren Markt-Zähler neu.
-`lastCheckedOn` bezeichnet den Auswertungstag; individuelle Angebotsgültigkeit
-wird nie verlängert. Quellenausfall behält nur gültige alte Treffer, vollständiger
-Ausfall veröffentlicht nichts. Unveränderter Inhalt erzeugt keinen neuen Commit.
-
-Workflow: .github/workflows/listi-offers.yml (im Paket unter Zeitplan/).
-Python 3.12+, PyMuPDF aus requirements.txt, Tesseract UND deutsches Sprachpaket:
+Workflow remains daily 05:23 UTC, tesseract-ocr plus tesseract-ocr-deu,
+Python 3.12+, pinned PyMuPDF. No changes to Firebase or credentials.
 
 ```sh
 python -m unittest discover -s tools/listi_offers -p 'test_*.py'
-python tools/listi_offers/collect.py --previous data/wochenangebote-v4.json --output /tmp/listi-new.json
+python tools/listi_offers/collect.py --previous data/wochenangebote-v5.json --output /tmp/listi-new.json
 ```
 
-Einkaufsbegriffe werden nur lokal auf dem Handy abgeglichen. Keine neuen APIs,
-Händlerkonten, Firebase-Zugangsdaten oder KI-Dienste. Die App braucht v4 für die
-neuen Produktgruppen; ältere Versionen erhalten ihre kompatiblen Dateien weiter.
+Action's full online viewer remains separate from this seven-market extractor.
+Shopping text stays on the device; no text is sent to merchants or AI services.

@@ -1,4 +1,4 @@
-"""Publish v4 plus compatible v1-v3 feeds for older installed versions."""
+"""Publish v5 plus compatible v1-v4 feeds for older installed versions."""
 import base64
 import json
 import os
@@ -14,12 +14,12 @@ def semantic(data):
     return {k: v for k, v in data.items() if k not in {'generatedAt', 'reviewedOn', 'catalogVersion'}}
 
 
-def compatible(data, markets, extended=False):
+def compatible(data, markets, extended=False, pantry_groups=False):
     result = dict(data)
-    result['schemaVersion'] = 1
+    result['schemaVersion'] = 2 if pantry_groups else 1
     result['offers'] = [o for o in data['offers'] if o['market'] in markets
-                        and o.get('category') in ({'pasta', 'butter', 'coffee', 'toast', 'beef'} if extended else {'pasta','butter','coffee'})
-                        and o.get('verificationMethod', 'manual') in {'manual', 'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price', *(['pdf_100g_price'] if extended else [])}
+                        and o.get('category') in ({'pasta', 'butter', 'coffee', 'toast', 'beef','milk','pasta_sauce','cola','sausage','cheese'} if pantry_groups else {'pasta', 'butter', 'coffee', 'toast', 'beef'} if extended else {'pasta','butter','coffee'})
+                        and o.get('verificationMethod', 'manual') in {'manual', 'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price', *(['pdf_100g_price'] if extended or pantry_groups else []), *(['pdf_volume_crosscheck','ocr_volume_crosscheck','pdf_1l_price'] if pantry_groups else [])}
                         and not (len(markets) == 2 and o.get('verificationMethod') == 'pdf_1kg_price')]
     result['sources'] = []
     for source in data['sources']:
@@ -28,7 +28,7 @@ def compatible(data, markets, extended=False):
         count=sum(o['market']==source['market'] for o in result['offers'])
         status['count' if source.get('state') == 'ok' else 'retained']=count
         result['sources'].append(status)
-    result['coverage'] = ('Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch.' if extended else 'Automatische Auswahl: Pasta, Butter und Kaffee.') + ' Kein vollständiger Marktvergleich.'
+    result['coverage'] = ('Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse.' if pantry_groups else 'Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch.' if extended else 'Automatische Auswahl: Pasta, Butter und Kaffee.') + ' Kein vollständiger Marktvergleich.'
     return result
 
 
@@ -64,7 +64,7 @@ def publish(data, path, headers):
 def main():
     from collect import validate_offer
     data = json.loads(Path(sys.argv[1]).read_bytes())
-    if data.get('schemaVersion') not in {1,2} or not isinstance(data.get('offers'), list) or len(data['offers']) > 500:
+    if data.get('schemaVersion') not in {1,2,3} or not isinstance(data.get('offers'), list) or len(data['offers']) > 500:
         raise ValueError('Invalid catalog')
     if not any(s.get('state') == 'ok' for s in data.get('sources', [])):
         raise ValueError('No successful source; refusing publication')
@@ -75,7 +75,8 @@ def main():
     headers = {'Authorization': f'Bearer {token}', 'Accept': 'application/vnd.github+json',
                'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'Listi-Offers-Publisher'}
     from collect import MARKET_PDF_HOSTS
-    publish(data, 'data/wochenangebote-v4.json', headers)
+    publish(data, 'data/wochenangebote-v5.json', headers)
+    publish(compatible(data, set(MARKET_PDF_HOSTS), pantry_groups=True), 'data/wochenangebote-v4.json', headers)
     publish(compatible(data, set(MARKET_PDF_HOSTS), extended=True), 'data/wochenangebote-v3.json', headers)
     publish(compatible(data, set(MARKET_PDF_HOSTS)), 'data/wochenangebote-v2.json', headers)
     publish(legacy(data), 'data/wochenangebote.json', headers)

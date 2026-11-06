@@ -17,7 +17,7 @@ class PantryTests(unittest.TestCase):
   for raw,cat in [('H-Milch','milk'),('Nudel Sauce','pasta_sauce'),('Pesto','pasta_sauce'),('Coca-Cola','cola'),('Käse-Bockwurst','sausage'),('Leberkäse','sausage'),('Gouda','cheese')]:
    self.assertEqual(c.category_of(raw),cat,raw)
  def test_no_nonfood_or_prepared_false_positives(self):
-  for raw in ['Rucola','Chocolate Eis','Milchaufschäumer','Milch Aufschäumer','Käsereibe','Hafermilch','Milchbrötchen','Milch Mäuse','Käsekuchen','Pizza Vier Käse','Wiener Art Schnitzel','Frankfurter Kranz']:
+  for raw in ['Rucola','Chocolate Eis','Milchaufschäumer','Milch Aufschäumer','Käsereibe','Hafermilch','Milch Mäuse','Käsekuchen','Pizza Vier Käse','Wiener Art Schnitzel','Frankfurter Kranz']:
    self.assertIsNone(c.category_of(raw),raw)
  def test_zero_not_inferred_from_various_sorts(self):
   self.assertNotIn('zero',p.tags('Cola verschiedene Sorten','cola')[0])

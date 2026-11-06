@@ -24,6 +24,7 @@ from urllib.request import Request, urlopen
 import fitz
 import product_types
 import pantry
+import staples
 
 ALLOWED_HOSTS = {
     'www.lidl.de', 'endpoints.leaflets.schwarz', 'assets.leaflets.schwarz',
@@ -217,6 +218,9 @@ def lines_from_words(words: list[Word]) -> list[dict]:
 
 
 def category_of(value: str) -> str | None:
+    staple = staples.category(value)
+    if staple is not None:
+        return staple
     grocery = pantry.category(value)
     if grocery is not None:
         return grocery if grocery != 'reject' else None
@@ -310,7 +314,7 @@ def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[da
                page_number: int, sha: str, method: str) -> dict | None:
     caption = product_types.caption(caption)
     cat = category_of(caption)
-    if not cat or cat in {'milk','cola'}:
+    if not cat or cat in {'milk','cola','eggs'}:
         return None
     body = normalized(caption)
     panel_text = normalized(' '.join(w.value for w in panel))
@@ -345,8 +349,10 @@ def offer_from(caption: str, panel: list[Word], source: Source, bounds: tuple[da
     if cat in {'toast', 'beef'}:
         variants, extra_attributes = product_types.tags(caption, cat)
         attributes = sorted(set(attributes + extra_attributes))
-    if cat in pantry.CATEGORIES:
+    if cat in (pantry.CATEGORIES | staples.CATEGORIES):
         variants, attributes = pantry.tags(caption, cat)
+    if cat in staples.CATEGORIES:
+        variants, attributes = staples.tags(caption, cat)
     start, end = bounds
     identity = f'{source.market}|{normalized(title)}|{grams}|{start}|{price}'
     return {'id': hashlib.sha256(identity.encode()).hexdigest()[:24], 'market': source.market,
@@ -373,7 +379,7 @@ def collect_penny(pdf: Path, source: Source) -> list[dict]:
             if not bounds:
                 continue
             for block in blocks:
-                if category_of(block['text']) is None or category_of(block['text']) in pantry.CATEGORIES:
+                if category_of(block['text']) is None or category_of(block['text']) in (pantry.CATEGORIES | staples.CATEGORIES):
                     continue
                 x0, y0, x1, y1 = block['bbox']
                 half = page.rect.width / 2
@@ -384,7 +390,7 @@ def collect_penny(pdf: Path, source: Source) -> list[dict]:
                 if offer:
                     offers.append(offer)
     import more_markets
-    offers.extend(o for o in more_markets.native_collect(pdf, source) if o['category'] in pantry.CATEGORIES)
+    offers.extend(o for o in more_markets.native_collect(pdf, source) if o['category'] in (pantry.CATEGORIES | staples.CATEGORIES))
     return offers
 
 
@@ -399,7 +405,7 @@ def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | 
                 continue
             preview = ocr(page, 1.5, directory, f'lidl-preview-{n}')
             preview_text = ' '.join(w.value for w in preview)
-            if not re.search(r'pasta|spaghetti|fusilli|nudeln|butter|kaffee|movenpick|melitta|barilla|toast|sandwich|rind|jungbullen|entrecote|rumpsteak|milch|cola|pepsi|sauce|sosse|pesto|wurst|salami|kase|gouda|mozzarella', normalized(preview_text)):
+            if not re.search(r'pasta|spaghetti|fusilli|nudeln|butter|kaffee|movenpick|melitta|barilla|toast|sandwich|rind|jungbullen|entrecote|rumpsteak|milch|cola|pepsi|sauce|sosse|pesto|wurst|salami|kase|gouda|mozzarella|brot|semmel|eier|joghurt|quark|sahne|hahnchen|pute|schwein|apfel|banane|tomaten|kartoffel|reis|mehl', normalized(preview_text)):
                 continue
             words = confirm_price_words(page, ocr(page, 3, directory, f'lidl-detail-{n}'), directory)
             header = ' '.join(w.value for w in sorted(words, key=lambda w: w.x0) if w.y0 < 45)
@@ -439,9 +445,9 @@ def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | 
 
 
 def validate_offer(offer: dict) -> None:
-    if offer['market'] not in MARKET_PDF_HOSTS or offer['category'] not in {'pasta', 'coffee', 'butter', 'toast', 'beef'} | pantry.CATEGORIES:
+    if offer['market'] not in MARKET_PDF_HOSTS or offer['category'] not in {'pasta', 'coffee', 'butter', 'toast', 'beef'} | pantry.CATEGORIES | staples.CATEGORIES:
         raise ValueError('Unexpected product mapping')
-    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price', 'pdf_100g_price', 'pdf_volume_crosscheck', 'ocr_volume_crosscheck', 'pdf_1l_price'}:
+    if offer.get('verificationMethod') not in {'pdf_text_crosscheck', 'ocr_unitprice_crosscheck', 'pdf_1kg_price', 'pdf_100g_price', 'pdf_volume_crosscheck', 'ocr_volume_crosscheck', 'pdf_1l_price', 'pdf_count_crosscheck', 'pdf_piece_price'}:
         raise ValueError('Missing machine validation evidence')
     evidence = offer['evidence']
     if offer['category'] in {'toast', 'beef'}:
@@ -450,10 +456,11 @@ def validate_offer(offer: dict) -> None:
         expected_variants, _ = product_types.tags(evidence['caption'], offer['category'])
         if set(offer['variants']) != set(expected_variants):
             raise ValueError('Product variants disagree with printed caption')
-    if offer['category'] in pantry.CATEGORIES:
-        if pantry.category(evidence.get('caption','')) != offer['category']:
+    if offer['category'] in (pantry.CATEGORIES | staples.CATEGORIES):
+        classifier = staples if offer['category'] in staples.CATEGORIES else pantry
+        if classifier.category(evidence.get('caption','')) != offer['category']:
             raise ValueError('Grocery category not supported by caption')
-        variants, attributes = pantry.tags(evidence['caption'], offer['category'])
+        variants, attributes = classifier.tags(evidence['caption'], offer['category'])
         if set(variants) != set(offer['variants']) or set(attributes) != set(offer['attributes']):
             raise ValueError('Grocery qualifiers disagree with caption')
     deposit = offer.get('depositCents')
@@ -464,17 +471,23 @@ def validate_offer(offer: dict) -> None:
     for key in ['pdfUrl', 'sourceUrl']:
         if urlparse(offer[key]).scheme != 'https' or urlparse(offer[key]).hostname not in ALLOWED_HOSTS:
             raise ValueError('Unexpected evidence URL')
+    counted = offer.get('quantityUnit') == 'piece'
+    if counted:
+        import staple_fields
+        staple_fields.validate_count(offer)
     volume = offer.get('quantityUnit') == 'ml'
     if not volume and offer['verificationMethod'] in {'pdf_volume_crosscheck','ocr_volume_crosscheck','pdf_1l_price'}:
         raise ValueError('Volume method applied to mass')
     if offer['category'] in {'milk','cola'} and not volume:
         raise ValueError('Liquid requires millilitre quantity')
-    if volume:
+    if counted:
+        pass
+    elif volume:
         import pantry_fields
         pantry_fields.validate_volume(offer)
     elif offer['verificationMethod'] in {'pdf_1kg_price', 'pdf_100g_price'}:
         counter = offer['verificationMethod'] == 'pdf_100g_price'
-        if counter and (offer['category'] not in {'beef','sausage','cheese'} or offer['quantityGrams'] != 100 or not re.fullmatch(r'100\s*g', evidence.get('printedQuantity', ''), re.I)):
+        if counter and (offer['category'] not in {'beef','sausage','cheese','poultry','pork'} or offer['quantityGrams'] != 100 or not re.fullmatch(r'100\s*g', evidence.get('printedQuantity', ''), re.I)):
             raise ValueError('Explicit beef price per 100 g missing')
         if not counter and (offer['quantityGrams'] != 1000 or not re.fullmatch(r'(?:1\s*kg|1[.]?000\s*g)', evidence.get('printedQuantity', ''), re.I)):
             raise ValueError('Explicit 1 kg pack missing')
@@ -487,7 +500,7 @@ def validate_offer(offer: dict) -> None:
     start, end = date.fromisoformat(offer['validFrom']), date.fromisoformat(offer['validTo'])
     if not 0 <= (end - start).days <= 6:
         raise ValueError('Invalid validity range')
-    if not 1 <= offer['pdfPage'] <= 150 or (not volume and not 50 <= offer['quantityGrams'] <= 2500) or not 10 <= offer['priceCents'] <= 5000:
+    if not 1 <= offer['pdfPage'] <= 150 or (not volume and not counted and not 50 <= offer['quantityGrams'] <= 5000) or not 10 <= offer['priceCents'] <= 5000:
         raise ValueError('Invalid price, size or page')
     expected_host = MARKET_PDF_HOSTS[offer['market']]
     if (urlparse(offer['pdfUrl']).hostname != expected_host
@@ -532,20 +545,25 @@ def collect(today: date, directory: Path, previous: dict | None = None,
             statuses.append({'market': market, 'state': 'failed', 'retained': len(kept), 'reason': str(error)[:250]})
     if not any(s['state'] == 'ok' for s in statuses):
         raise RuntimeError('All retailer imports failed; published data stays unchanged')
-    unique = {offer['id']: offer for offer in offers}
+    # Different parser paths can find the same product panel. Keep one record.
+    unique = {}
+    for offer in offers:
+        label = re.sub(r'[^a-z0-9]', '', normalized(offer['title']))
+        key = (offer['market'], label, offer.get('category'), offer.get('quantityUnit','g'), offer.get('quantityCount',offer.get('quantityMl',offer.get('quantityGrams'))), offer.get('priceCents'),offer['validFrom'],offer['validTo'])
+        unique.setdefault(key,offer)
     for status in statuses:
         if status['state'] == 'ok':
             status['count'] = sum(o['market'] == status['market'] for o in unique.values())
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    return {'schemaVersion': 2, 'catalogVersion': f'{today.isoformat()}-automatic',
+    return {'schemaVersion': 3, 'catalogVersion': f'{today.isoformat()}-automatic',
             'reviewedOn': today.isoformat(), 'lastCheckedOn': today.isoformat(), 'generatedAt': now,
-            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
+            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
             'sources': statuses, 'offers': sorted(unique.values(), key=lambda o: (o['market'], o['title'], o['id']))}
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote-v4.json'))
+    parser.add_argument('--output', type=Path, default=Path('data/wochenangebote-v5.json'))
     parser.add_argument('--previous', type=Path)
     parser.add_argument('--local-pdfs', type=Path)
     parser.add_argument('--lidl-pages', help='Only for targeted local verification, e.g. 12,13')
