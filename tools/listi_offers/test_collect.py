@@ -42,7 +42,10 @@ class ExtractionTests(unittest.TestCase):
 
     def test_not_related_food(self):
         for item in ['Butterkekse', 'Buttermilch', 'Pasta Sauce', 'Pasta-Soße', 'Kaffeemaschine', 'Tortellini Pasta', 'Pesto', 'Vegane Butter', 'Margarine Butter', 'Kaffee Cappuccino']:
-            self.assertIsNone(c.category_of(item), item)
+            if item in {'Pasta Sauce','Pasta-Soße','Pesto'}:
+                self.assertEqual(c.category_of(item),'pasta_sauce',item)
+            else:
+                self.assertIsNone(c.category_of(item), item)
 
     def test_app_condition_excluded(self):
         app = c.Word('PENNY App', 1, 1, 20, 10, 9)

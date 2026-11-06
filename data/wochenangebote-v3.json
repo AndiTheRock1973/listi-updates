@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-11-05-automatic",
-  "reviewedOn": "2026-11-05",
-  "lastCheckedOn": "2026-11-05",
-  "generatedAt": "2026-11-05T14:06:45+00:00",
-  "coverage": "Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
+  "catalogVersion": "2026-11-06-automatic",
+  "reviewedOn": "2026-11-06",
+  "lastCheckedOn": "2026-11-06",
+  "generatedAt": "2026-11-06T07:00:36+00:00",
+  "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
@@ -15,9 +15,10 @@
     },
     {
       "market": "Lidl",
-      "state": "failed",
-      "retained": 1,
-      "reason": "[Errno 2] No such file or directory: 'tesseract'"
+      "state": "ok",
+      "count": 1,
+      "validFrom": "2026-11-02",
+      "validTo": "2026-11-07"
     },
     {
       "market": "ALDI SÜD",
@@ -483,7 +484,7 @@
         "printedQuantity": "100 g",
         "priceLine": "2.49"
       },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Preis je 100 g, kein fester Packungspreis. Fleischart, Sorte, Bedingungen und Filialverfügbarkeit im Prospekt prüfen."
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Preis je 100 g, kein fester Packungspreis. Produktart, Sorte, Bedingungen und Filialverfügbarkeit im Prospekt prüfen."
     }
   ]
 }

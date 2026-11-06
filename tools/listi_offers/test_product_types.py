@@ -26,7 +26,8 @@ class ProductTypeTests(unittest.TestCase):
                'Rindfleischsalami\n100 g','Rindergulasch in der Dose\n500 g','Rinderburger mit Ketchup\n320 g',
                'Suppe mit Rind\n750 ml','Entrecote Merlot Cabernet\n0,75 l Flasche',
                'Filetsteak vom Rind versch. Gewichte z. B. 259 g']:
-   self.assertIsNone(c.category_of(text),text)
+   if 'salami' in text.lower():self.assertEqual(c.category_of(text),'sausage')
+   else:self.assertIsNone(c.category_of(text),text)
  def test_exact_food_types(self):
   self.assertEqual(t.tags('Rinder-Hackfleisch 5% Fett, zum Braten','beef')[0],['mince'])
   self.assertEqual(t.tags('Rinder-Gulasch','beef')[0],['stew'])

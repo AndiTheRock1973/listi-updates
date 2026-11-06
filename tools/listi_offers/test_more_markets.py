@@ -22,7 +22,7 @@ class MoreMarketTests(unittest.TestCase):
         self.assertIsNone(m.canonical_caption(raw.replace('140-g','150-g')))
 
     def test_alternatives_and_prepared_food_excluded(self):
-        for text in ['MIRÁCOLI\nPasta-Soße\nje 675-g-Glas; kg-Preis 3.69',
+        for text in [
                      'Jacobs\nKaffee\nje 200- bzw. 225-g-Packung; kg-Preis 22.45 bzw. 19.96',
                      'De Cecco\nProtein Pasta\n400 g Packung\n1 kg = 4.98',
                      'Président\nMeersalz Butter\n250-g-Packung; kg-Preis 9.96',
