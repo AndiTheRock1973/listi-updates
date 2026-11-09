@@ -1,106 +1,25 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-11-06-automatic",
-  "reviewedOn": "2026-11-06",
-  "lastCheckedOn": "2026-11-06",
-  "generatedAt": "2026-11-06T08:37:44+00:00",
+  "catalogVersion": "2026-11-09-automatic",
+  "reviewedOn": "2026-11-09",
+  "lastCheckedOn": "2026-11-09",
+  "generatedAt": "2026-11-09T11:17:53+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
       "state": "ok",
-      "count": 2,
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-07"
+      "count": 0,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14"
     },
     {
       "market": "Lidl",
       "state": "ok",
-      "count": 1,
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-07"
+      "count": 0,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14"
     }
   ],
-  "offers": [
-    {
-      "id": "6f1480cb15e11933dc427294",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "BARILLA Pasta",
-      "brand": "BARILLA",
-      "category": "pasta",
-      "variants": [
-        "spaghetti",
-        "fusilli"
-      ],
-      "attributes": [],
-      "priceCents": 99,
-      "quantityGrams": 500,
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-07",
-      "pdfPage": 13,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a17709-8249-7615-b563-dc7ab8c43523/Aktionsprospekt-02-11-2026-07-11-2026-04.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-02-11-2026-07-11-2026-d34d64/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "ocr_unitprice_crosscheck",
-      "evidence": {
-        "pdfSha256": "a50d861b2384fc4fb8d0881041d282f80e814c60b7c4dd173e9c4d3a9165ccfe",
-        "printedUnitPriceCents": 198,
-        "caption": "BARILLA Pasta Versch. Sorten. Je500g 1kg=1.98"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "95b0c81200fd645a4084cc29",
-      "market": "PENNY",
-      "location": "Eichenau · Hauptstraße 17–19",
-      "title": "FRAU ANTJE Beste Butter Streichzart",
-      "brand": "FRAU ANTJE",
-      "category": "butter",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 129,
-      "quantityGrams": 250,
-      "validFrom": "2026-11-02",
-      "validTo": "2026-11-07",
-      "pdfPage": 12,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1413692/3/pdf/complete.pdf",
-      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1413692",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "af1698debccd294a4fe2f530c7fc60972189bf16cdf9397e7331269293195a08",
-        "printedUnitPriceCents": 516,
-        "caption": "FRAU ANTJE  Beste Butter Streichzart, je 250 g (1 kg = 5.16)"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "5b9ab29276fe8b036ace0d69",
-      "market": "PENNY",
-      "location": "Eichenau · Hauptstraße 17–19",
-      "title": "MELITTA Kaffeepads Barista Crema",
-      "brand": "MELITTA",
-      "category": "coffee",
-      "variants": [
-        "pads"
-      ],
-      "attributes": [],
-      "priceCents": 199,
-      "quantityGrams": 107,
-      "validFrom": "2026-11-05",
-      "validTo": "2026-11-07",
-      "pdfPage": 50,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1413692/3/pdf/complete.pdf",
-      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1413692",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "af1698debccd294a4fe2f530c7fc60972189bf16cdf9397e7331269293195a08",
-        "printedUnitPriceCents": 1860,
-        "caption": "MELITTA Kaffeepads Barista Crema, je 107 g (1 kg = 18.60)  oder"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    }
-  ]
+  "offers": []
 }
