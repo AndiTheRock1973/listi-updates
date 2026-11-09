@@ -511,6 +511,13 @@ def validate_offer(offer: dict) -> None:
         raise ValueError('Missing product evidence')
 
 
+def catalog_version(today: date, offers: list[dict]) -> str:
+    # Same-day corrections must invalidate the app's regional catalog cache.
+    payload = json.dumps(sorted(offers, key=lambda o: o['id']), sort_keys=True,
+                         ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    return f'{today.isoformat()}-automatic-{hashlib.sha256(payload).hexdigest()[:12]}'
+
+
 def collect(today: date, directory: Path, previous: dict | None = None,
             local: Path | None = None, lidl_pages: list[int] | None = None, include_all: bool = True) -> dict:
     offers, statuses = [], []
@@ -555,7 +562,7 @@ def collect(today: date, directory: Path, previous: dict | None = None,
         if status['state'] == 'ok':
             status['count'] = sum(o['market'] == status['market'] for o in unique.values())
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
-    return {'schemaVersion': 3, 'catalogVersion': f'{today.isoformat()}-automatic',
+    return {'schemaVersion': 3, 'catalogVersion': catalog_version(today, list(unique.values())),
             'reviewedOn': today.isoformat(), 'lastCheckedOn': today.isoformat(), 'generatedAt': now,
             'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
             'sources': statuses, 'offers': sorted(unique.values(), key=lambda o: (o['market'], o['title'], o['id']))}

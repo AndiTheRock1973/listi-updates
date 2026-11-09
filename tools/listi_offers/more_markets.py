@@ -207,6 +207,53 @@ def counter_offer(raw, panel, price, source, bounds, page, sha):
   'note':'Automatisch aus dem offiziellen Prospekt erfasst. Preis je 100 g, kein fester Packungspreis. Produktart, Sorte, Bedingungen und Filialverfügbarkeit im Prospekt prüfen.'}
 
 
+def penny_cover_banana(blocks, words, prices, source, bounds, page, sha, width, height):
+ """Known PENNY cover grid: captions below pictures, prices above them.
+
+ Confirm all three neighbouring anchors before associating the detached fruit
+ price. No relaxation of the general nearest-caption rule and no fixed price.
+ """
+ if source.market!='PENNY' or page!=1 or not 450<=width<=500 or not 810<=height<=870:return None
+ def unique(predicate):
+  found=[b for b in blocks if predicate(b)]
+  return found[0] if len(found)==1 else None
+ banana=unique(lambda b: re.fullmatch(r'chiquita\s+bananen[*®]?\s+je\s+kg',c.normalized(b['text']).strip()) is not None)
+ coffee=unique(lambda b:'dallmayr' in c.normalized(b['text']) and 'prodomo' in c.normalized(b['text']))
+ chicken=unique(lambda b:'muhlenhof' in c.normalized(b['text']) and re.search(r'frische\s+hahnchen[- ]schenkel',c.normalized(b['text'])) is not None)
+ if not banana or not coffee or not chicken:return None
+ bx,by,bx1,by1=banana['bbox'];cx,cy,cx1,cy1=coffee['bbox'];hx,hy,hx1,hy1=chicken['bbox']
+ if not (.56<=bx/width<=.66 and .34<=cx/width<=.40 and .73<=hx/width<=.80 and
+         .57<=by/height<=.63 and abs(by1-cy1)<3 and abs(by1-hy1)<3):return None
+ def one_price(xmin,xmax,ymin,ymax):
+  found=[p for p in prices if xmin<=p.x0/width<=xmax and ymin<=p.y0/height<=ymax]
+  return found[0] if len(found)==1 else None
+ fruit_price=one_price(.82,.89,.17,.24)
+ coffee_price=one_price(.56,.67,.17,.24)
+ chicken_price=one_price(.82,.89,.49,.56)
+ if not fruit_price or not coffee_price or not chicken_price:return None
+ if abs(fruit_price.y0-coffee_price.y0)>4 or abs(fruit_price.x0-chicken_price.x0)>4:return None
+ # Unit-price anchors establish this specific grid instead of guessing across columns.
+ coffee_mass=staple_fields.mass_details(coffee['text']);chicken_mass=staple_fields.mass_details(chicken['text'])
+ for item,price in [(coffee_mass,coffee_price),(chicken_mass,chicken_price)]:
+  if not item or item[1] is None:return None
+  if abs(round(c.cents(price.value)*1000/item[0])-item[1])>1:return None
+ panel=' '.join(w.value for w in words if fruit_price.x0-20<=w.x0<=fruit_price.x1+20 and
+                fruit_price.y0-40<=w.y0<=fruit_price.y1+15)
+ if re.search(r'\bapp\b|coupon|kundenkarte|normalpreis|treuepunkte|mit\s*der|nur\s+(?:am|mit)',c.normalized(panel)):return None
+ price=c.cents(fruit_price.value)
+ if not 10<=price<=5000:return None
+ raw=banana['text'];title='CHIQUITA Bananen';start,end=bounds
+ variants,attrs=staples.tags(raw,'fruit')
+ return {'id':hashlib.sha256(f'{source.market}|{staples.text(title)}|1000|mass|{start}|{price}'.encode()).hexdigest()[:24],
+  'market':source.market,'location':source.location,'title':title,'brand':'Chiquita','category':'fruit',
+  'variants':variants,'attributes':attrs,'priceCents':price,'quantityGrams':1000,
+  'validFrom':start.isoformat(),'validTo':end.isoformat(),'pdfPage':page,'pdfUrl':source.pdf_url,
+  'sourceUrl':source.source_url,'verified':True,'verificationMethod':'pdf_1kg_price',
+  'evidence':{'pdfSha256':sha,'caption':clean(raw),'printedQuantity':'1000 g','priceLine':fruit_price.value,
+              'layout':'penny-cover-three-caption-grid'},
+  'note':'Automatisch aus dem offiziellen Prospekt erfasst. Preis je 1 kg loser Ware, kein fester Packungspreis. Zeitraum und Filialverfügbarkeit prüfen.'}
+
+
 def native_collect(pdf:Path, source:c.Source):
  sha=hashlib.sha256(pdf.read_bytes()).hexdigest();offers=[]
  with fitz.open(pdf) as document:
@@ -239,6 +286,8 @@ def native_collect(pdf:Path, source:c.Source):
    elif source.market=='ALDI SÜD' and not c.page_dates(header,source):continue
    elif re.search(r'\bab\b.{0,25}\d{1,2}\.\d{1,2}\.',header,re.I):continue
    if re.search(r'\bnur\s+(?:am|mit|montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)|coupon|treuepunkte',header,re.I):continue
+   cover_produce=penny_cover_banana(blocks,words,prices,source,page_bounds,number,sha,page.rect.width,page.rect.height)
+   if cover_produce:offers.append(cover_produce)
    for block in blocks:
     raw=block['text']
     if source.market=='EDEKA' and c.category_of(raw) in {'beef','sausage','cheese','poultry','pork'} and '*' in raw:
