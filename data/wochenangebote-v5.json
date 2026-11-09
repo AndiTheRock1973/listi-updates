@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "catalogVersion": "2026-11-09-automatic",
+  "catalogVersion": "2026-11-09-automatic-4ed5d56af350",
   "reviewedOn": "2026-11-09",
   "lastCheckedOn": "2026-11-09",
-  "generatedAt": "2026-11-09T11:17:53+00:00",
+  "generatedAt": "2026-11-09T12:02:33+00:00",
   "coverage": "Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
       "state": "ok",
-      "count": 25,
+      "count": 26,
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14"
     },
@@ -1887,6 +1887,35 @@
       },
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen.",
       "quantityGrams": 75
+    },
+    {
+      "id": "1d5522915b5d87f9a649a493",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "CHIQUITA Bananen",
+      "brand": "Chiquita",
+      "category": "fruit",
+      "variants": [
+        "banana"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 1000,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 1,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "caption": "CHIQUITA Bananen* je kg",
+        "printedQuantity": "1000 g",
+        "priceLine": "1.99",
+        "layout": "penny-cover-three-caption-grid"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Preis je 1 kg loser Ware, kein fester Packungspreis. Zeitraum und Filialverfügbarkeit prüfen."
     },
     {
       "id": "4d9c20da648fb624ed6a0ae2",
