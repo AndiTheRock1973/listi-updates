@@ -7,7 +7,7 @@ CATEGORIES={'milk','pasta_sauce','cola','sausage','cheese'}
 def category(raw):
  t=re.sub(r'\s+',' ',normal(raw))
  if re.search(r'reibe|schneider|aufschaumer|aufshaumer|milchkanne|milchtopf',t):return 'reject'
- ready=r'fertiggericht|pastagericht|nudelgericht|lasagne|pizza|burger|cordon|pfannengericht|gefullt|fullung|tortellini|ravioli|suppe|eintopf'
+ ready=r'kasespatzle|fertiggericht|pastagericht|nudelgericht|lasagne|pizza|burger|cordon|pfannengericht|gefullt|fullung|tortellini|ravioli|suppe|eintopf'
  sauce=bool(re.search(r'pasta[-\s]*sau|pasta[-\s]*so|nudel[-\s]*sau|nudel[-\s]*so|tomatensau|tomatenso|sauce\s+bolognese|bolognese[-\s]*sauce',t))
  if sauce:return 'reject' if re.search(ready,t) else 'pasta_sauce'
  if re.search(r'leberkase|fleischkase|kase[-\s]*(?:bockwurst|wiener)|kaswurst|kasewurst',t):return 'reject' if re.search(ready,t) else 'sausage'

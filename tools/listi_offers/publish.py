@@ -76,9 +76,9 @@ def main():
                'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'Listi-Offers-Publisher'}
     from collect import MARKET_PDF_HOSTS
     publish(data, 'data/wochenangebote-v5.json', headers)
-    publish(compatible(data, set(MARKET_PDF_HOSTS), pantry_groups=True), 'data/wochenangebote-v4.json', headers)
-    publish(compatible(data, set(MARKET_PDF_HOSTS), extended=True), 'data/wochenangebote-v3.json', headers)
-    publish(compatible(data, set(MARKET_PDF_HOSTS)), 'data/wochenangebote-v2.json', headers)
+    publish(compatible(data, set(MARKET_PDF_HOSTS) - {'Netto','Action'}, pantry_groups=True), 'data/wochenangebote-v4.json', headers)
+    publish(compatible(data, set(MARKET_PDF_HOSTS) - {'Netto','Action'}, extended=True), 'data/wochenangebote-v3.json', headers)
+    publish(compatible(data, set(MARKET_PDF_HOSTS) - {'Netto','Action'}), 'data/wochenangebote-v2.json', headers)
     publish(legacy(data), 'data/wochenangebote.json', headers)
 
 

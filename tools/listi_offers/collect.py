@@ -31,6 +31,7 @@ ALLOWED_HOSTS = {
     'www.penny.de', 'penny-publish.blaetterkatalog.de',
     'www.aldi-sued.de', 'prospekt.aldi-sued.de', 'view.publitas.com',
     'www.rewe.de', 'services.publitas.com', 'blaetterkatalog.edeka.de',
+    'www.netto-online.de', 'wochenprospekt.netto-online.de', 'scripts.publitas.com',
     'aez.de', 'www.mueller.de', 'dam.prod.ecom.mueller.de',
 }
 MAX_BYTES = 200_000_000
@@ -42,6 +43,7 @@ MARKET_PDF_HOSTS = {
     'EDEKA': 'blaetterkatalog.edeka.de',
     'AEZ': 'aez.de',
     'MÜLLER': 'dam.prod.ecom.mueller.de',
+    'Netto': 'view.publitas.com',
 }
 LOCAL_NAMES = {'ALDI SÜD': 'aldi', 'MÜLLER': 'mueller'}
 
@@ -396,6 +398,13 @@ def collect_penny(pdf: Path, source: Source) -> list[dict]:
 
 def collect_lidl(pdf: Path, source: Source, directory: Path, pages: list[int] | None = None) -> list[dict]:
     sha = hashlib.sha256(pdf.read_bytes()).hexdigest()
+    # Modern Lidl PDFs contain reliable native text. The former OCR-only path
+    # missed footer dates and returned zero offers for these publications.
+    with fitz.open(pdf) as probe:
+        readable = sum(len(page.get_text()) for page in probe) >= 1000
+    if readable:
+        import more_markets
+        return more_markets.native_collect(pdf, source, pages=pages)
     offers = []
     with fitz.open(pdf) as document:
         if not 1 <= len(document) <= 150:
@@ -505,6 +514,7 @@ def validate_offer(offer: dict) -> None:
     expected_host = MARKET_PDF_HOSTS[offer['market']]
     if (urlparse(offer['pdfUrl']).hostname != expected_host
         or (offer['market'] == 'ALDI SÜD' and not urlparse(offer['pdfUrl']).path.startswith('/73714/'))
+        or (offer['market'] == 'Netto' and not urlparse(offer['pdfUrl']).path.startswith('/100989/'))
         or (offer['market'] == 'REWE' and not urlparse(offer['pdfUrl']).path.startswith('/89773/'))):
         raise ValueError('Retailer and PDF host disagree')
     if not evidence.get('caption') or not offer.get('title') or not offer.get('brand'):
@@ -564,7 +574,7 @@ def collect(today: date, directory: Path, previous: dict | None = None,
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     return {'schemaVersion': 3, 'catalogVersion': catalog_version(today, list(unique.values())),
             'reviewedOn': today.isoformat(), 'lastCheckedOn': today.isoformat(), 'generatedAt': now,
-            'coverage': 'Automatische Auswahl aus den sieben eingerichteten Märkten: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
+            'coverage': 'Automatische Auswahl aus den eingerichteten Händlerquellen: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.',
             'sources': statuses, 'offers': sorted(unique.values(), key=lambda o: (o['market'], o['title'], o['id']))}
 
 

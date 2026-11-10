@@ -19,6 +19,7 @@ ENTRY = {
  'EDEKA': ('Eichenau · Hauptstraße 55', 'https://blaetterkatalog.edeka.de/SUEDBAYERN/NeukaufSued/index.html'),
  'REWE': ('Alling · Gilchinger Straße 33', 'https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/'),
  'AEZ': ('Fürstenfeldbruck · City Point', 'https://aez.de/wochenangebot/'),
+ 'Netto': ('Puchheim · Benzstraße 38', 'https://www.netto-online.de/filialen/Puchheim/Benzstr-38/8342'),
  'MÜLLER': ('Puchheim · Dornierstraße 3', 'https://www.mueller.de/prospekte/'),
 }
 
@@ -29,10 +30,11 @@ def unescape(s):
 
 def range_in(text, year):
  # Explicit printed range, with the source metadata supplying an omitted year.
- clean = re.sub(r'\b(?:Mo|Di|Mi|Do|Fr|Sa|So)\.', '', text, flags=re.I)
- match = re.search(r'(?:g[üu]ltig\s+(?:vom|von)\s*)?(\d{1,2})\s*\.\s*(\d{1,2})\s*\.\s*(?:20\d{2})?\s*(?:–|—|-|bis)\s*(\d{1,2})\s*\.\s*(\d{1,2})\s*\.\s*(20\d{2})?', clean, re.I)
+ clean = re.sub(r'\b(?:Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag|Sonntag|Mo\.|Di\.|Mi\.|Do\.|Fr\.|Sa\.|So\.)', '', text, flags=re.I)
+ match = re.search(r'(?:g[üu]ltig\s+(?:vom|von)\s*)?(\d{1,2})\s*\.\s*(\d{1,2})\s*\.\s*(?:20\d{2})?\s*(?:–|—|-|bis)\s*(\d{1,2})\s*\.\s*(\d{1,2})\s*\.\s*((?:20)?\d{2})?', clean, re.I)
  if not match:return None
  end_year = int(match[5] or year)
+ if end_year<100:end_year+=2000
  try:
   end = date(end_year, int(match[4]), int(match[3]))
   start_year = end_year - (int(match[2]) > end.month)
@@ -42,6 +44,12 @@ def range_in(text, year):
  return start, end
 
 
+def page_ranges(text,year):
+ clean=re.sub(r'\b(?:Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag|Sonntag|Mo\.|Di\.|Mi\.|Do\.|Fr\.|Sa\.|So\.)','',text,flags=re.I)
+ pattern=r'(?:g[üu]ltig\s+(?:vom|von)\s*)?\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*(?:20\d{2})?\s*(?:–|—|-|bis)\s*\d{1,2}\s*\.\s*\d{1,2}\s*\.\s*(?:(?:20)?\d{2})?'
+ return {value for hit in re.finditer(pattern,clean,re.I) if (value:=range_in(hit[0],year)) is not None}
+
+
 def current(source, today):
  if not source.start <= today <= source.end:raise ValueError('No current retailer edition')
  return source
@@ -49,6 +57,9 @@ def current(source, today):
 
 def resolve(market, today):
  location, entry = ENTRY[market]
+ if market=='Netto':
+  from netto_source import resolve_netto
+  return resolve_netto(today)
  if market == 'EDEKA':
   xml = c.text(urljoin(entry, 'blaetterkatalog/xml/catalog.xml'))
   start = date.fromisoformat(re.search(r'<from>([^<]+)', xml)[1])
@@ -117,6 +128,7 @@ def canonical_caption(raw):
  grams=int(amounts[0].replace('.',''))
  units=re.findall(r'(?:1\s*kg\s*=|kg[- ]Preis)\s*(\d{1,3}[.,]\d{2})(?![\d.,/])',s,re.I)
  if not units:units=re.findall(r'€\s*(\d{1,3}[.,]\d{2})\s*/\s*1\s*kg',s,re.I)
+ if not units:units=re.findall(r'(\d{1,3}[.,]\d{2})\s*/\s*kg\b',s,re.I)
  if len(units)!=1 or re.search(r'\d[.,]\d{2}\s*(?:/|bzw\.|-)\s*\d',s):return None
  unit=c.cents(units[0])
  price=int((Decimal(unit)*grams/1000).quantize(Decimal(1),rounding=ROUND_HALF_UP))
@@ -254,7 +266,7 @@ def penny_cover_banana(blocks, words, prices, source, bounds, page, sha, width, 
   'note':'Automatisch aus dem offiziellen Prospekt erfasst. Preis je 1 kg loser Ware, kein fester Packungspreis. Zeitraum und Filialverfügbarkeit prüfen.'}
 
 
-def native_collect(pdf:Path, source:c.Source):
+def native_collect(pdf:Path, source:c.Source, pages=None):
  sha=hashlib.sha256(pdf.read_bytes()).hexdigest();offers=[]
  with fitz.open(pdf) as document:
   if not 1<=len(document)<=150:raise ValueError('Unexpected page count')
@@ -268,13 +280,21 @@ def native_collect(pdf:Path, source:c.Source):
   if not bounds:raise ValueError('PDF cover validity not explicit')
   if bounds[0]<source.start or bounds[1]>source.end:raise ValueError('PDF and source dates disagree')
   for number,page in enumerate(document,1):
+   if pages and number not in pages:continue
    blocks,words=c.native_page(page); prices=price_lines(page)
    header=' '.join(b['text'] for b in blocks if b['bbox'][1]<55)
    if source.market=='REWE':
     # The already validated publication Monday is not a later-day product restriction.
     printed=source.start.strftime('%d.%m.%Y')
     header=re.sub(r'G(?:ü|ue|u)ltig\s+ab\s+'+re.escape(printed), '', header, flags=re.I)
-   page_bounds=c.page_dates(header,source) or bounds
+   if source.market in {'Lidl','Netto'}:
+    # Lidl prints the complete period in a page header/footer.
+    # Pages without it (editorial, online specials) do not inherit a guessed week.
+    footer=' '.join(b['text'] for b in blocks if b['bbox'][1]<55 or b['bbox'][1]>page.rect.height-115)
+    periods=page_ranges(footer,source.end.year)
+    if len(periods)!=1:continue
+    page_bounds=periods.pop()
+   else:page_bounds=c.page_dates(header,source) or bounds
    if page_bounds[0]<bounds[0] or page_bounds[1]>bounds[1]:continue
    starts=re.findall(r'\bab\s+(?:Mo|Di|Mi|Do|Fr|Sa|So)\.\s*(\d{1,2})\.(\d{1,2})\.',header,re.I)
    if starts:
@@ -290,6 +310,8 @@ def native_collect(pdf:Path, source:c.Source):
    if cover_produce:offers.append(cover_produce)
    for block in blocks:
     raw=block['text']
+    if source.market in {'Lidl','Netto'} and re.search(r'stollen|kasespatzle|paniert|roulade|\boder\b',c.normalized(raw)):
+     continue  # Prepared/alternative product groups are not a generic grocery match.
     if source.market=='EDEKA' and c.category_of(raw) in {'beef','sausage','cheese','poultry','pork'} and '*' in raw:
      if 'nicht in allen markten' in c.normalized(clean(page.get_text())):
       continue  # Local butcher-counter applicability is not established by this regional flyer.
