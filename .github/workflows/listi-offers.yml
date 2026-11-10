@@ -29,6 +29,8 @@ jobs:
           sudo apt-get install -y --no-install-recommends tesseract-ocr tesseract-ocr-deu
           python3 -m venv /tmp/listi-venv
           /tmp/listi-venv/bin/pip install -r tools/listi_offers/requirements.txt
+      - name: Browser für Netto vorbereiten
+        run: /tmp/listi-venv/bin/python -m playwright install --with-deps chromium
       - name: Sicherheits- und Zuordnungstests
         run: /tmp/listi-venv/bin/python -m unittest discover -s tools/listi_offers -p 'test_*.py' -v
       - name: Aktuelle Prospekte auswerten
