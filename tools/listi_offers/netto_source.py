@@ -20,7 +20,16 @@ class NettoHTTPError(HTTPError):
 
 def read_text(url,stage):
  try:return c.text(url)
- except HTTPError as error:raise NettoHTTPError(error,stage) from error
+ except HTTPError as error:
+  if error.code==403 and stage=='Filialseite':
+   import netto_browser
+   try:
+    page=netto_browser.read_branch(url)
+    print('Netto: Filialseite über Standardbrowser geladen; Adresse und Ausgabe werden weiter geprüft.',flush=True)
+    return page
+   except Exception as browser_error:
+    raise RuntimeError(f'{NettoHTTPError(error,stage)}; Browser: {browser_error}') from browser_error
+  raise NettoHTTPError(error,stage) from error
 
 
 def resolve_netto(today):

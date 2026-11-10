@@ -12,8 +12,8 @@ class NettoDiagnosticsTests(TestCase):
    def read(url):
     if hit(url):raise HTTPError(url,403,'Forbidden',{},None)
     return base.respond(url)
-   with self.subTest(stage=stage),patch('collect.text',side_effect=read):
-    with self.assertRaises(n.NettoHTTPError) as caught:n.resolve_netto(date(2026,11,10))
+   with self.subTest(stage=stage),patch('collect.text',side_effect=read),patch('netto_browser.read_branch',side_effect=RuntimeError('Browser nicht freigegeben')):
+    with self.assertRaises((n.NettoHTTPError,RuntimeError)) as caught:n.resolve_netto(date(2026,11,10))
     self.assertIn(stage,str(caught.exception));self.assertIn('HTTP 403',str(caught.exception))
     self.assertNotIn('?',str(caught.exception))
  def test_optional_404_keeps_official_branch_link(self):
