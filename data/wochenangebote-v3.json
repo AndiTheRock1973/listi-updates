@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-11-09-automatic",
-  "reviewedOn": "2026-11-09",
-  "lastCheckedOn": "2026-11-09",
-  "generatedAt": "2026-11-09T11:17:53+00:00",
+  "catalogVersion": "2026-11-10-automatic-da0ff005f36e",
+  "reviewedOn": "2026-11-10",
+  "lastCheckedOn": "2026-11-10",
+  "generatedAt": "2026-11-10T08:37:05+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot und Rindfleisch. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -16,7 +16,7 @@
     {
       "market": "Lidl",
       "state": "ok",
-      "count": 0,
+      "count": 1,
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14"
     },
@@ -184,6 +184,31 @@
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
     },
     {
+      "id": "a48fa805daea39fc54ac9443",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "MEGGLE Feine Butter/ Streichzart Streichzart in",
+      "brand": "MEGGLE",
+      "category": "butter",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 149,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 25,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 596,
+        "caption": "MEGGLE Feine Butter/ Streichzart Streichzart in versch. Sorten. Gekühlt. Je 250 g 1 kg = 5.96"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
       "id": "53acf437328bab078732eaf1",
       "market": "PENNY",
       "location": "Eichenau · Hauptstraße 17–19",
@@ -199,12 +224,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 12,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 999,
         "caption": "MÜHLENHOF Frische Rinder-Beinscheiben Vom Jungbullen, aufgetaut, je 700-g-Packung (1 kg = 9.99)"
       },
