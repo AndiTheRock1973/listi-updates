@@ -4,6 +4,11 @@ from decimal import Decimal
 from product_types import normal
 CATEGORIES={'milk','pasta_sauce','cola','sausage','cheese'}
 
+def alcoholic_cola(raw):
+ t=re.sub(r'\s+',' ',normal(raw))
+ return bool(re.search(r'\b(?:whisk(?:e)?y|bourbon|rum|vodka|wodka|gin|likor|cocktail|spirituosen?)\b|alkoholhaltig|alkohol[-\s]+und[-\s]+koffeinhaltig',t))
+
+
 def category(raw):
  t=re.sub(r'\s+',' ',normal(raw))
  if re.search(r'reibe|schneider|aufschaumer|aufshaumer|milchkanne|milchtopf',t):return 'reject'
@@ -17,7 +22,7 @@ def category(raw):
   return 'reject' if re.search(ready+r'|kaffee|caffe|melange|kranz|kuchen|schokolade|sauce|sosse|wurstbrot|schnitzel|wiener\s+art|wurstsalat|toastschinken',t) else 'sausage'
  if re.search(r'\bpesto\b',t):return 'reject' if re.search(ready,t) else 'pasta_sauce'
  if re.search(r'\b(?:coca[-\s]*)?cola\b|\bpepsi\b',t):
-  return 'reject' if re.search(r'kaugummi|fruchtgummi|bonbon|sirup|likor|rum|vodka|whisky|cocktail',t) else 'cola'
+  return 'reject' if alcoholic_cola(t) or re.search(r'kaugummi|fruchtgummi|bonbon|sirup',t) else 'cola'
  if 'milch' in t:
   if re.search(r'milch[-\s]*(?:brot|brotchen|mause|mousse|creme)|hafer|soja|mandel|kokos|pflanz|buttermilch|kaffee|caffe|kakao|schoko|milchreis|milchriegel|kondens|muttermilch|sauglings|milchpulver|milchdrink|milchgetrank|pudding|dessert|joghurt|quark|latte',t):return 'reject'
   if re.search(r'\bmilch\b|h[-\s]*milch|frischmilch|vollmilch|magermilch',t):return 'milk'
