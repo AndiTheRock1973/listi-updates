@@ -3,7 +3,7 @@
   "catalogVersion": "2026-11-10-automatic-2060d599206d",
   "reviewedOn": "2026-11-10",
   "lastCheckedOn": "2026-11-10",
-  "generatedAt": "2026-11-10T15:09:28+00:00",
+  "generatedAt": "2026-11-10T15:13:00+00:00",
   "coverage": "Automatische Auswahl aus den eingerichteten Händlerquellen: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -52,7 +52,7 @@
       "market": "Netto",
       "state": "failed",
       "retained": 20,
-      "reason": "Netto Filialseite: HTTP 403 (www.netto-online.de/filialen/puchheim/benzstr-38/8342); Browser: BrowserType.launch: Executable doesn't exist at /home/runner/.cache/ms-playwright/chromium_headless_shell-1254/chrome-headless-shell-linux64/chrome-headless"
+      "reason": "Netto Filialseite: HTTP 403 (www.netto-online.de/filialen/puchheim/benzstr-38/8342); Browser: Filialseite HTTP 403"
     },
     {
       "market": "MÜLLER",
