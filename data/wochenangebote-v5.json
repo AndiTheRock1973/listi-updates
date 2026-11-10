@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "catalogVersion": "2026-11-10-automatic-da0ff005f36e",
+  "catalogVersion": "2026-11-10-automatic-31ac28f754b3",
   "reviewedOn": "2026-11-10",
   "lastCheckedOn": "2026-11-10",
   "generatedAt": "2026-11-10T08:37:05+00:00",
@@ -51,8 +51,9 @@
     {
       "market": "Netto",
       "state": "failed",
-      "retained": 0,
-      "reason": "HTTP Error 403: Forbidden"
+      "retained": 20,
+      "reason": "HTTP Error 403: Forbidden",
+      "note": "Verifizierte Original-PDF dieser Woche ergänzt; automatischer Abruf weiterhin blockiert."
     },
     {
       "market": "MÜLLER",
@@ -4119,6 +4120,550 @@
       },
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen.",
       "quantityGrams": 500
+    },
+    {
+      "id": "e02f9884284bfa7b7eb5d74f",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Käsescheiben gekühlt",
+      "brand": "Käsescheiben",
+      "category": "cheese",
+      "variants": [
+        "slices"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 1,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 498,
+        "caption": "Käse- scheiben gekühlt, versch. Sorten 400 g (4.98 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "5c2b6e6a5ef6bf82903dc2fa",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "–21% Paprika-Mix Niederlande/Spanien, Kl. I",
+      "brand": "–21%",
+      "category": "vegetables",
+      "variants": [
+        "pepper"
+      ],
+      "attributes": [],
+      "priceCents": 179,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 2,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 358,
+        "caption": "–21% Paprika-Mix Niederlande/Spanien, Kl. I 500 g (3.58 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "079ab97a208b633af26e1c06",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Zitronen Italien/Spanien, Kl. I",
+      "brand": "Zitronen",
+      "category": "fruit",
+      "variants": [
+        "lemon"
+      ],
+      "attributes": [],
+      "priceCents": 222,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 5,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "caption": "Zitronen Italien/Spanien, Kl. I 1 kg Netz ",
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedQuantity": "1000 g",
+        "priceLine": "2.22"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen. Preisbezug je 1 kg; bei loser Ware kein fester Packungspreis.",
+      "quantityGrams": 1000
+    },
+    {
+      "id": "61d5a91b5e029804adb84b41",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Bratwürste vom Schwein, grob",
+      "brand": "Bratwürste",
+      "category": "sausage",
+      "variants": [
+        "bratwurst",
+        "pork"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 12,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 498,
+        "caption": "Bratwürste vom Schwein, grob 400 g (4.98 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "22d8bf869efb55a5cd8701b8",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Hähnchen-Minutenschnitzel aus dem Brustfilet geschnitten",
+      "brand": "Hähnchen-Minutenschnitzel",
+      "category": "poultry",
+      "variants": [
+        "breast",
+        "chicken",
+        "fillet",
+        "schnitzel"
+      ],
+      "attributes": [],
+      "priceCents": 399,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 12,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 998,
+        "caption": "Hähnchen-Minuten- schnitzel aus dem Brustfilet geschnitten 400 g (9.98 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "b241a29cd22c8fce9d4df8d9",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Schweine- Schnitzel aus der Oberschale",
+      "brand": "Schweine-",
+      "category": "pork",
+      "variants": [
+        "schnitzel"
+      ],
+      "attributes": [],
+      "priceCents": 499,
+      "quantityGrams": 800,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 12,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 624,
+        "caption": "Schweine- Schnitzel aus der Ober- schale 800 g (6.24 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "5d7454d73b10c80d935a02c9",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Nürnberger Rostbratwurst",
+      "brand": "Nürnberger",
+      "category": "sausage",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 279,
+      "quantityGrams": 300,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 13,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 930,
+        "caption": "Nürnberger Rostbrat- wurst 300 g (9.30 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "6cdb5c205e5189cac22b6196",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Original Österreichische Wurstspezialitäten",
+      "brand": "Original Österreichische",
+      "category": "sausage",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 149,
+      "quantityGrams": 80,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 13,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 1863,
+        "caption": "Original Öster- reichische Wurstspeziali- täten versch. Sorten 80 g (18.63 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "c4c5a275be52eb16e89d4bc0",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Bio Pommersche Gutsleberwurst fein",
+      "brand": "Bio Pommersche",
+      "category": "sausage",
+      "variants": [
+        "leberwurst"
+      ],
+      "attributes": [
+        "bio"
+      ],
+      "priceCents": 149,
+      "quantityGrams": 125,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 15,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 1192,
+        "caption": "Bio Pommersche Gutsleberwurst fein 125 g (11.92 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "28aa3b26db9e0b9d45bd04ff",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "iglo Rahm-Spinat XXL tiefgekühlt",
+      "brand": "iglo Rahm-Spinat XXL",
+      "category": "vegetables",
+      "variants": [
+        "spinach"
+      ],
+      "attributes": [],
+      "priceCents": 249,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 19,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "caption": "iglo Rahm-Spinat XXL tiefgekühlt 1 kg ",
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedQuantity": "1000 g",
+        "priceLine": "2.49"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen. Preisbezug je 1 kg; bei loser Ware kein fester Packungspreis.",
+      "quantityGrams": 1000
+    },
+    {
+      "id": "042a0fc37b4ec684b77dbf2b",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Trauben hell Italien, Kl. I",
+      "brand": "Trauben",
+      "category": "fruit",
+      "variants": [
+        "grape"
+      ],
+      "attributes": [],
+      "priceCents": 189,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 58,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 378,
+        "caption": "Trauben hell Italien, Kl. I 500 g Schale (3.78 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "f803545b61bdda11f74c3823",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Mini-Rispentomaten Niederlande, Kl. I",
+      "brand": "Mini-Rispentomaten",
+      "category": "vegetables",
+      "variants": [
+        "tomato"
+      ],
+      "attributes": [],
+      "priceCents": 299,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 59,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 748,
+        "caption": "Mini-Rispentomaten Niederlande, Kl. I 400 g Schale (7.48 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "da9c3b11f0bdee9a19066e15",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Chiquita Bananen Costa Rica/Panama",
+      "brand": "Chiquita Bananen",
+      "category": "fruit",
+      "variants": [
+        "banana"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 59,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_1kg_price",
+      "evidence": {
+        "caption": "Chiquita Bananen Costa Rica/Panama, 1 kg ",
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedQuantity": "1000 g",
+        "priceLine": "1.99"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen. Preisbezug je 1 kg; bei loser Ware kein fester Packungspreis.",
+      "quantityGrams": 1000
+    },
+    {
+      "id": "056399c79e59cde3919f6151",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "–18% Champignon braun Polen, Kl. I",
+      "brand": "–18%",
+      "category": "vegetables",
+      "variants": [
+        "mushroom"
+      ],
+      "attributes": [],
+      "priceCents": 179,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 59,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 448,
+        "caption": "–18% Champignon braun Polen, Kl. I 400 g Schale (4.48 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "dcf0777dbddad52fd171c775",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "–12% Bio Rinder Hackfleisch zum Braten",
+      "brand": "–12%",
+      "category": "beef",
+      "variants": [
+        "mince"
+      ],
+      "attributes": [
+        "bio"
+      ],
+      "priceCents": 549,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 61,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 1373,
+        "caption": "–12% Bio Rinder Hackfleisch zum Braten 400 g (13.73 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "0836375839aab07ef1991e37",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Leberwurst",
+      "brand": "Leberwurst",
+      "category": "sausage",
+      "variants": [
+        "leberwurst"
+      ],
+      "attributes": [],
+      "priceCents": 111,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 62,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 444,
+        "caption": "Leberwurst versch. Sorten 250 g (4.44 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "766dc50e5a9f0326e5dfd587",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Edelsalami geräuchert",
+      "brand": "Edelsalami",
+      "category": "sausage",
+      "variants": [
+        "salami"
+      ],
+      "attributes": [],
+      "priceCents": 499,
+      "quantityGrams": 650,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 62,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 768,
+        "caption": "Edelsalami geräuchert 650 g (7.68 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "2306791a7f7c2287143ef061",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "–10% Cabanossi gebrüht, geräuchert",
+      "brand": "–10%",
+      "category": "sausage",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 249,
+      "quantityGrams": 300,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 62,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 830,
+        "caption": "–10% Cabanossi gebrüht, geräuchert 300 g (8.30 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "068aab4bf0e046e85601a88c",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "Rügenwalder Teewurst",
+      "brand": "Rügenwalder",
+      "category": "sausage",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 249,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 62,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 996,
+        "caption": "Rügenwalder Teewurst versch. Sorten 250 g (9.96 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "b2f585f75119d20e2a914541",
+      "market": "Netto",
+      "location": "Puchheim · Benzstraße 38",
+      "title": "–13% Geflügelmortadella",
+      "brand": "–13%",
+      "category": "sausage",
+      "variants": [
+        "mortadella",
+        "poultry"
+      ],
+      "attributes": [],
+      "priceCents": 111,
+      "quantityGrams": 200,
+      "validFrom": "2026-11-12",
+      "validTo": "2026-11-14",
+      "pdfPage": 62,
+      "pdfUrl": "https://view.publitas.com/100989/3512411/pdfs/d34dddc9-dcd4-4996-8412-b6780e6e7aba.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27hz46_ehos.pdf",
+      "sourceUrl": "https://wochenprospekt.netto-online.de/hz46_ehos/?storeid=8342",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "b0a0ef8ba6374ae2552cb800c9bea68e2e0fa1cb01c98ff1b257cd0a4a630efd",
+        "printedUnitPriceCents": 555,
+        "caption": "–13% Geflügelmortadella versch. Sorten 200 g (5.55 / kg)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
     }
   ]
 }
