@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "catalogVersion": "2026-11-09-automatic",
-  "reviewedOn": "2026-11-09",
-  "lastCheckedOn": "2026-11-09",
-  "generatedAt": "2026-11-09T11:17:53+00:00",
+  "catalogVersion": "2026-11-10-automatic-da0ff005f36e",
+  "reviewedOn": "2026-11-10",
+  "lastCheckedOn": "2026-11-10",
+  "generatedAt": "2026-11-10T08:37:05+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -16,7 +16,7 @@
     {
       "market": "Lidl",
       "state": "ok",
-      "count": 0,
+      "count": 10,
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14"
     },
@@ -777,6 +777,273 @@
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
     },
     {
+      "id": "77bfbf5030338a350f05a868",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "(Abb. ähnlich) MILBONA Edamer In Scheiben. 40 % Fett i. Tr. Gekühlt",
+      "brand": "(Abb. ähnlich)",
+      "category": "cheese",
+      "variants": [
+        "edamer",
+        "slices"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 31,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 498,
+        "caption": "(Abb. ähnlich) MILBONA Edamer In Scheiben. 40 % Fett i. Tr. Gekühlt. Je 400 g; 1 kg = 4.98"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "b319da79319ebc6475ccbd84",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "(Abb. ähnlich) MILBONA Emmentaler Am Stück. 45 % Fett i. Tr. Gekühlt",
+      "brand": "(Abb. ähnlich)",
+      "category": "cheese",
+      "variants": [
+        "emmental",
+        "piece"
+      ],
+      "attributes": [],
+      "priceCents": 279,
+      "quantityGrams": 400,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 31,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 698,
+        "caption": "(Abb. ähnlich) MILBONA Emmentaler Am Stück. 45 % Fett i. Tr. Gekühlt. Je 400 g 1 kg = 6.98"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "471a18f221e664c570901bcb",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "ALMETTE Frischkäse",
+      "brand": "ALMETTE",
+      "category": "cheese",
+      "variants": [
+        "cream"
+      ],
+      "attributes": [],
+      "priceCents": 111,
+      "quantityGrams": 150,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 25,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 740,
+        "caption": "ALMETTE Frischkäse Versch. Sorten. Gekühlt. Je 150 g 1 kg = 7.40"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "f6fb6fd6b86843cf142a169e",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "BIOLAND Hirtenkäse 45 % Fett i. Tr. Gekühlt",
+      "brand": "BIOLAND",
+      "category": "cheese",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 179,
+      "quantityGrams": 200,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 31,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 895,
+        "caption": "BIOLAND Hirtenkäse 45 % Fett i. Tr. Gekühlt. Je 200 g 1 kg = 8.95"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "aada212fefb1d1546106cad4",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "BIOLAND Käse Am Stück",
+      "brand": "BIOLAND",
+      "category": "cheese",
+      "variants": [
+        "piece"
+      ],
+      "attributes": [],
+      "priceCents": 189,
+      "quantityGrams": 200,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 31,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 945,
+        "caption": "BIOLAND Käse Am Stück. Versch. Sorten. Gekühlt. Je 200 g 1 kg = 9.45"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "206523966a337ec202bd8f0c",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "DELUXE Italienische Wurst spezialität",
+      "brand": "DELUXE",
+      "category": "sausage",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 100,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 10,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 1990,
+        "caption": "DELUXE Italienische Wurst spezialität Versch. Sorten. Gekühlt. Je 100 g 1 kg = 19.90"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "d71c3446e5b57c795a0c823d",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "DELUXE Pesto",
+      "brand": "DELUXE",
+      "category": "pasta_sauce",
+      "variants": [
+        "pesto"
+      ],
+      "attributes": [],
+      "priceCents": 149,
+      "quantityGrams": 190,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 10,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 784,
+        "caption": "DELUXE Pesto Versch. Sorten. Je 190 g 1 kg = 7.84"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "a48fa805daea39fc54ac9443",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "MEGGLE Feine Butter/ Streichzart Streichzart in",
+      "brand": "MEGGLE",
+      "category": "butter",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 149,
+      "quantityGrams": 250,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 25,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 596,
+        "caption": "MEGGLE Feine Butter/ Streichzart Streichzart in versch. Sorten. Gekühlt. Je 250 g 1 kg = 5.96"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "988a6d38a07bd04c97c31948",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "MILBONA Camembert Creme",
+      "brand": "MILBONA",
+      "category": "cheese",
+      "variants": [
+        "soft"
+      ],
+      "attributes": [],
+      "priceCents": 199,
+      "quantityGrams": 150,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 11,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "printedUnitPriceCents": 1327,
+        "caption": "MILBONA Camembert Creme Versch. Sorten. Gekühlt. Je 150 g 1 kg = 13.27"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "cdc5af990d33d10be9d7a838",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "PEPSI Versch. Sorten. Koffeinhaltig",
+      "brand": "PEPSI",
+      "category": "cola",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 88,
+      "quantityUnit": "ml",
+      "quantityMl": 1250,
+      "validFrom": "2026-11-09",
+      "validTo": "2026-11-14",
+      "pdfPage": 25,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_volume_crosscheck",
+      "evidence": {
+        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
+        "caption": "PEPSI Versch. Sorten. Koffeinhaltig. Je 1,25 l zzgl. 0.25 Pfand 1 l = 0.70",
+        "printedUnitPriceCents": 70
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Inhalt, Gültigkeit und Filialverfügbarkeit prüfen.",
+      "depositNote": "zzgl. Pfand; Höhe im Prospekt prüfen.",
+      "depositCents": 25
+    },
+    {
       "id": "12414c924fc60b23031c9c59",
       "market": "PENNY",
       "location": "Eichenau · Hauptstraße 17–19",
@@ -797,12 +1064,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 17,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_1l_price",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "caption": "BERCHTES- GADENER LAND Frische Bergbauern Milch* 1,5% oder 3,5% Fett, je 1 l",
         "printedQuantity": "1 l",
         "priceLine": "1.11"
@@ -830,12 +1097,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 17,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_1l_price",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "caption": "BERCHTES­ GADENER LAND Haltbare Bergbauern Milch* 1,5% oder 3,5% Fett, je 1 l",
         "printedQuantity": "1 l",
         "priceLine": "1.00"
@@ -856,12 +1123,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 596,
         "caption": "BERLINKI Würstchen* Versch. Sorten, je 250 g (1 kg = 5.96)"
       },
@@ -882,12 +1149,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 24,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_volume_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "caption": "BULLEIT Whiskey & Cola* Alkohol- und koffeinhaltiges Mischgetränk, 10% vol, zzgl. 0.25 Pfand, je 0,33 l (1 l = 6.03) oder",
         "printedUnitPriceCents": 603
       },
@@ -910,12 +1177,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 22,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_volume_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "caption": "COCA-COLA Friendspack* Koffeinhaltiges Erfrischungsgetränk, versch. Sorten, zzgl. 2.50 Pfand, je 10 x 0,33 l (1 l = 1.82)",
         "printedUnitPriceCents": 182
       },
@@ -937,12 +1204,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 814,
         "caption": "KUPFER Ofenleberkäse* Versch. Sorten, je 220 g (1 kg = 8.14)"
       },
@@ -964,12 +1231,12 @@
       "validFrom": "2026-11-12",
       "validTo": "2026-11-14",
       "pdfPage": 38,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 994,
         "caption": "KUPFER Weißwurst* Versch. Sorten, je 180 g (1 kg = 9.94)"
       },
@@ -992,12 +1259,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 40,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 793,
         "caption": "LINDENHOF XXL Gouda* Jung, am Stück, je 700 g (1 kg = 7.93)"
       },
@@ -1017,12 +1284,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 27,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 369,
         "caption": "MIRÁCOLI XXL Pastasauce* Versch. Sorten, je 675 g (1 kg = 3.69)"
       },
@@ -1042,12 +1309,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 14,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 1290,
         "caption": "MÜHLENHOF Delikatess Zungen- Rotwurst* je 100 g (1 kg = 12.90)"
       },
@@ -1069,12 +1336,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 12,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 999,
         "caption": "MÜHLENHOF Frische Rinder-Beinscheiben Vom Jungbullen, aufgetaut, je 700-g-Packung (1 kg = 9.99)"
       },
@@ -1096,12 +1363,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 40,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 665,
         "caption": "3.99 MÜHLENHOF XXL Delikatess Käse-Wiener* je 600 g (1 kg = 6.65)"
       },
@@ -1123,12 +1390,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 40,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 636,
         "caption": "MÜHLENHOF XXL Delikatess Salami* je 250 g (1 kg = 6.36)"
       },
@@ -1148,12 +1415,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 16,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 1106,
         "caption": "SALAKIS Schafkäse* Natur, je 180 g (1 kg = 11.06)"
       },
@@ -1175,12 +1442,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 1196,
         "caption": "VIVE LA FRANCE Französische Stangen- salami oder Ringsalami* Versch. Sorten, je 250 g (1 kg = 11.96)"
       },
@@ -1200,12 +1467,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/1/pdf/complete.pdf",
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
       "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "cdd81a31f3f7b96f00525e8da58e276db1cc61eed8707705b2bf0c50bbafb665",
+        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
         "printedUnitPriceCents": 1863,
         "caption": "WIESENHOF Aufschnitt Hauchfein* Versch. Sorten, je 80 g (1 kg = 18.63)"
       },
