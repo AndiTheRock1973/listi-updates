@@ -32,7 +32,7 @@ jobs:
       - name: Sicherheits- und Zuordnungstests
         run: /tmp/listi-venv/bin/python -m unittest discover -s tools/listi_offers -p 'test_*.py' -v
       - name: Aktuelle Prospekte auswerten
-        run: /tmp/listi-venv/bin/python tools/listi_offers/collect.py --previous data/wochenangebote.json --output /tmp/listi-new.json
+        run: /tmp/listi-venv/bin/python tools/listi_offers/collect.py --previous data/wochenangebote-v5.json --output /tmp/listi-new.json
       - name: Ergebnis anzeigen
         run: |
           /tmp/listi-venv/bin/python - <<'PY'
