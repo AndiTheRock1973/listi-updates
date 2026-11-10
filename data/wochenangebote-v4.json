@@ -1,15 +1,15 @@
 {
   "schemaVersion": 2,
-  "catalogVersion": "2026-11-10-automatic-da0ff005f36e",
+  "catalogVersion": "2026-11-10-automatic-2060d599206d",
   "reviewedOn": "2026-11-10",
   "lastCheckedOn": "2026-11-10",
-  "generatedAt": "2026-11-10T11:34:59+00:00",
+  "generatedAt": "2026-11-10T14:40:31+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
       "state": "ok",
-      "count": 16,
+      "count": 15,
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14"
     },
@@ -1133,34 +1133,6 @@
         "caption": "BERLINKI Würstchen* Versch. Sorten, je 250 g (1 kg = 5.96)"
       },
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "a5776a0c7bb88a97225b9067",
-      "market": "PENNY",
-      "location": "Eichenau · Hauptstraße 17–19",
-      "title": "BULLEIT Whiskey & Cola* Alkohol- und koffeinhaltiges Mischgetränk, 10% vol, zzgl. 0.25 Pfand",
-      "brand": "BULLEIT",
-      "category": "cola",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 199,
-      "quantityUnit": "ml",
-      "quantityMl": 330,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 24,
-      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1418261/2/pdf/complete.pdf",
-      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1418261",
-      "verified": true,
-      "verificationMethod": "pdf_volume_crosscheck",
-      "evidence": {
-        "pdfSha256": "1c8ab540fbc53bd987d07af71b346ac9cdfaf1490516749b1aa74b94e83b2711",
-        "caption": "BULLEIT Whiskey & Cola* Alkohol- und koffeinhaltiges Mischgetränk, 10% vol, zzgl. 0.25 Pfand, je 0,33 l (1 l = 6.03) oder",
-        "printedUnitPriceCents": 603
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Inhalt, Gültigkeit und Filialverfügbarkeit prüfen.",
-      "depositNote": "zzgl. Pfand; Höhe im Prospekt prüfen.",
-      "depositCents": 25
     },
     {
       "id": "4d9c20da648fb624ed6a0ae2",
