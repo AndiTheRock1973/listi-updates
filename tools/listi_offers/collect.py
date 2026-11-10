@@ -556,7 +556,8 @@ def collect(today: date, directory: Path, previous: dict | None = None,
         except Exception as error:
             print(f'{market}: source unavailable or incompatible: {type(error).__name__}: {error}', flush=True)
             kept = [o for o in (previous or {}).get('offers', []) if o.get('market') == market
-                    and o.get('validFrom', 'z') <= today.isoformat() <= o.get('validTo', '')]
+                    and o.get('validFrom', 'z') <= (today + timedelta(days=6)).isoformat()
+                    and today.isoformat() <= o.get('validTo', '')]
             # Keep only already published entries, without prolonging any date.
             offers.extend(kept)
             statuses.append({'market': market, 'state': 'failed', 'retained': len(kept), 'reason': str(error)[:250]})
