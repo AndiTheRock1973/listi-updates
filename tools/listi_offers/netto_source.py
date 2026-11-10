@@ -7,11 +7,25 @@ from urllib.error import HTTPError
 from urllib.parse import urlparse, parse_qs
 import collect as c
 
-BRANCH='https://www.netto-online.de/filialen/Puchheim/Benzstr-38/8342'
+BRANCH='https://www.netto-online.de/filialen/puchheim/benzstr-38/8342'
+
+class NettoHTTPError(HTTPError):
+ def __init__(self,error,stage):
+  super().__init__(error.url,error.code,error.msg,error.hdrs,error.fp)
+  self.stage=stage
+ def __str__(self):
+  u=urlparse(self.url)
+  return f'Netto {self.stage}: HTTP {self.code} ({u.hostname}{u.path})'
+
+
+def read_text(url,stage):
+ try:return c.text(url)
+ except HTTPError as error:raise NettoHTTPError(error,stage) from error
+
 
 def resolve_netto(today):
  import more_markets as m
- page=c.text(BRANCH)
+ page=read_text(BRANCH,'Filialseite')
  confirmed=False
  def walk(v):
   nonlocal confirmed
@@ -35,18 +49,18 @@ def resolve_netto(today):
  paths={urlparse(x).path for x in links}
  if len(paths)!=1:raise ValueError('Netto reference publication ambiguous')
  path=paths.pop();entry='https://wochenprospekt.netto-online.de'+path+'?storeid=8342'
- book=c.text(entry);slug=path.strip('/')
+ book=read_text(entry,'Wochenprospekt');slug=path.strip('/')
  match=re.fullmatch(r'([a-z]+\d+)(?:_[a-z]+)*?(?:_(\d+))?',slug,re.I)
  if not match or "routingBaseUrl: 'https://scripts.publitas.com/netto-online/custom-routing'" not in book:raise ValueError('Netto public routing changed')
  key=match[1]+('_'+match[2] if match[2] else '')
- routes=json.loads(c.text('https://scripts.publitas.com/netto-online/custom-routing/'+key+'.json'))
+ routes=json.loads(read_text('https://scripts.publitas.com/netto-online/custom-routing/'+key+'.json','Regionalzuordnung'))
  mapped=routes.get('8342')
  target=mapped if isinstance(mapped,str) and mapped!=slug else slug+'_sid8342'
  if mapped!=slug:
   if not re.fullmatch(r'[a-zA-Z0-9_-]+',target):raise ValueError('Netto route invalid')
   candidate='https://wochenprospekt.netto-online.de/'+target+'/?storeid=8342'
   try:
-   alternate=c.text(candidate)
+   alternate=read_text(candidate,'Optionale Filialausgabe')
    if 'name="asset-root"' not in alternate:raise ValueError('Netto mapped publication missing')
    entry,book=candidate,alternate
   except HTTPError as error:
