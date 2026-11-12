@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "catalogVersion": "2026-11-10-automatic-2060d599206d",
-  "reviewedOn": "2026-11-10",
-  "lastCheckedOn": "2026-11-10",
-  "generatedAt": "2026-11-10T14:40:31+00:00",
+  "catalogVersion": "2026-11-12-automatic-8617661d77e2",
+  "reviewedOn": "2026-11-12",
+  "lastCheckedOn": "2026-11-12",
+  "generatedAt": "2026-11-12T13:54:43+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -16,7 +16,7 @@
     {
       "market": "Lidl",
       "state": "ok",
-      "count": 10,
+      "count": 0,
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14"
     },
@@ -488,12 +488,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 9,
-      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/d78116ac-3afd-44d4-b624-809912722e14.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/ea6d87eb-b509-4c62-b565-64c883e1fb5e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw46-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "083e76a68bbf38f151fae6520696233de10682ea30f8d2ee3bf77584337de49d",
+        "pdfSha256": "80e8bc3ecde3bf4a6c0de3371ba71f60b3869ae04bc4a0c856d677ca47b55c83",
         "printedUnitPriceCents": 1083,
         "caption": "GRÜNLÄNDER Käsescheiben Versch. Sorten; je 156-g-Packung; kg-Preis 10.83"
       },
@@ -516,12 +516,12 @@
       "validFrom": "2026-11-13",
       "validTo": "2026-11-14",
       "pdfPage": 21,
-      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/d78116ac-3afd-44d4-b624-809912722e14.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/ea6d87eb-b509-4c62-b565-64c883e1fb5e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw46-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "083e76a68bbf38f151fae6520696233de10682ea30f8d2ee3bf77584337de49d",
+        "pdfSha256": "80e8bc3ecde3bf4a6c0de3371ba71f60b3869ae04bc4a0c856d677ca47b55c83",
         "printedUnitPriceCents": 1990,
         "caption": "LANDBECK Salamini Vom Schwein; versch. Sorten; 2 x 50 g = 100-g-Packung; kg-Preis 19.90"
       },
@@ -544,12 +544,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 5,
-      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/d78116ac-3afd-44d4-b624-809912722e14.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/ea6d87eb-b509-4c62-b565-64c883e1fb5e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw46-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "083e76a68bbf38f151fae6520696233de10682ea30f8d2ee3bf77584337de49d",
+        "pdfSha256": "80e8bc3ecde3bf4a6c0de3371ba71f60b3869ae04bc4a0c856d677ca47b55c83",
         "printedUnitPriceCents": 465,
         "caption": "MEINE METZGEREI Bratwurst Vom Schwein; 600-g-Packung; kg-Preis 4.65 2. 79"
       },
@@ -571,12 +571,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/d78116ac-3afd-44d4-b624-809912722e14.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/ea6d87eb-b509-4c62-b565-64c883e1fb5e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw46-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "083e76a68bbf38f151fae6520696233de10682ea30f8d2ee3bf77584337de49d",
+        "pdfSha256": "80e8bc3ecde3bf4a6c0de3371ba71f60b3869ae04bc4a0c856d677ca47b55c83",
         "printedUnitPriceCents": 793,
         "caption": "MILSANI Cremiger Weichkäse Versch. Sorten; je 150-g-Packung; kg-Preis 7.93 1. 19"
       },
@@ -596,12 +596,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/d78116ac-3afd-44d4-b624-809912722e14.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3496475/pdfs/ea6d87eb-b509-4c62-b565-64c883e1fb5e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw46-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "083e76a68bbf38f151fae6520696233de10682ea30f8d2ee3bf77584337de49d",
+        "pdfSha256": "80e8bc3ecde3bf4a6c0de3371ba71f60b3869ae04bc4a0c856d677ca47b55c83",
         "printedUnitPriceCents": 723,
         "caption": "MILSANI Käse-Snack in Würfeln Versch. Sorten; je 2 x 110 g = 220-g-Packung; kg-Preis 7.23 1. 59"
       },
@@ -775,273 +775,6 @@
         "caption": "oder Bella Pasta aus 100% Hartweizengrieß je 500g Beutel 1kg=2.58"
       },
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "77bfbf5030338a350f05a868",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "(Abb. ähnlich) MILBONA Edamer In Scheiben. 40 % Fett i. Tr. Gekühlt",
-      "brand": "(Abb. ähnlich)",
-      "category": "cheese",
-      "variants": [
-        "edamer",
-        "slices"
-      ],
-      "attributes": [],
-      "priceCents": 199,
-      "quantityGrams": 400,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 31,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 498,
-        "caption": "(Abb. ähnlich) MILBONA Edamer In Scheiben. 40 % Fett i. Tr. Gekühlt. Je 400 g; 1 kg = 4.98"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "b319da79319ebc6475ccbd84",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "(Abb. ähnlich) MILBONA Emmentaler Am Stück. 45 % Fett i. Tr. Gekühlt",
-      "brand": "(Abb. ähnlich)",
-      "category": "cheese",
-      "variants": [
-        "emmental",
-        "piece"
-      ],
-      "attributes": [],
-      "priceCents": 279,
-      "quantityGrams": 400,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 31,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 698,
-        "caption": "(Abb. ähnlich) MILBONA Emmentaler Am Stück. 45 % Fett i. Tr. Gekühlt. Je 400 g 1 kg = 6.98"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "471a18f221e664c570901bcb",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "ALMETTE Frischkäse",
-      "brand": "ALMETTE",
-      "category": "cheese",
-      "variants": [
-        "cream"
-      ],
-      "attributes": [],
-      "priceCents": 111,
-      "quantityGrams": 150,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 25,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 740,
-        "caption": "ALMETTE Frischkäse Versch. Sorten. Gekühlt. Je 150 g 1 kg = 7.40"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "f6fb6fd6b86843cf142a169e",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "BIOLAND Hirtenkäse 45 % Fett i. Tr. Gekühlt",
-      "brand": "BIOLAND",
-      "category": "cheese",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 179,
-      "quantityGrams": 200,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 31,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 895,
-        "caption": "BIOLAND Hirtenkäse 45 % Fett i. Tr. Gekühlt. Je 200 g 1 kg = 8.95"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "aada212fefb1d1546106cad4",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "BIOLAND Käse Am Stück",
-      "brand": "BIOLAND",
-      "category": "cheese",
-      "variants": [
-        "piece"
-      ],
-      "attributes": [],
-      "priceCents": 189,
-      "quantityGrams": 200,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 31,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 945,
-        "caption": "BIOLAND Käse Am Stück. Versch. Sorten. Gekühlt. Je 200 g 1 kg = 9.45"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "206523966a337ec202bd8f0c",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "DELUXE Italienische Wurst spezialität",
-      "brand": "DELUXE",
-      "category": "sausage",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 199,
-      "quantityGrams": 100,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 10,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 1990,
-        "caption": "DELUXE Italienische Wurst spezialität Versch. Sorten. Gekühlt. Je 100 g 1 kg = 19.90"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "d71c3446e5b57c795a0c823d",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "DELUXE Pesto",
-      "brand": "DELUXE",
-      "category": "pasta_sauce",
-      "variants": [
-        "pesto"
-      ],
-      "attributes": [],
-      "priceCents": 149,
-      "quantityGrams": 190,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 10,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 784,
-        "caption": "DELUXE Pesto Versch. Sorten. Je 190 g 1 kg = 7.84"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "a48fa805daea39fc54ac9443",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "MEGGLE Feine Butter/ Streichzart Streichzart in",
-      "brand": "MEGGLE",
-      "category": "butter",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 149,
-      "quantityGrams": 250,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 25,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 596,
-        "caption": "MEGGLE Feine Butter/ Streichzart Streichzart in versch. Sorten. Gekühlt. Je 250 g 1 kg = 5.96"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "988a6d38a07bd04c97c31948",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "MILBONA Camembert Creme",
-      "brand": "MILBONA",
-      "category": "cheese",
-      "variants": [
-        "soft"
-      ],
-      "attributes": [],
-      "priceCents": 199,
-      "quantityGrams": 150,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 11,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_text_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "printedUnitPriceCents": 1327,
-        "caption": "MILBONA Camembert Creme Versch. Sorten. Gekühlt. Je 150 g 1 kg = 13.27"
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
-    },
-    {
-      "id": "cdc5af990d33d10be9d7a838",
-      "market": "Lidl",
-      "location": "Maisach · Maisacher Straße 61",
-      "title": "PEPSI Versch. Sorten. Koffeinhaltig",
-      "brand": "PEPSI",
-      "category": "cola",
-      "variants": [],
-      "attributes": [],
-      "priceCents": 88,
-      "quantityUnit": "ml",
-      "quantityMl": 1250,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14",
-      "pdfPage": 25,
-      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1b19c-f04f-70f3-a155-628b1013ce86/Aktionsprospekt-09-11-2026-14-11-2026-01.pdf",
-      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-09-11-2026-14-11-2026-de787e/ar/0?_ab=1&lf=HHZ",
-      "verified": true,
-      "verificationMethod": "pdf_volume_crosscheck",
-      "evidence": {
-        "pdfSha256": "32efbb727757666408ee2f66b81d5480f2c84363633e3a0b109da41e160ee24a",
-        "caption": "PEPSI Versch. Sorten. Koffeinhaltig. Je 1,25 l zzgl. 0.25 Pfand 1 l = 0.70",
-        "printedUnitPriceCents": 70
-      },
-      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Inhalt, Gültigkeit und Filialverfügbarkeit prüfen.",
-      "depositNote": "zzgl. Pfand; Höhe im Prospekt prüfen.",
-      "depositCents": 25
     },
     {
       "id": "12414c924fc60b23031c9c59",
@@ -1471,12 +1204,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 20,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_1l_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Allgäuer Hof-Milch Haltbare Heumilch 3,5%/1,5% Fett, je 1-l-Pckg. Aktion 1. 49",
         "printedQuantity": "1 l",
         "priceLine": "1.49"
@@ -1497,12 +1230,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 20,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 996,
         "caption": "Allgäuer Hofmilch Butter mild gesäuert, je 250-g-Pckg. (1 kg = 9.96)"
       },
@@ -1524,12 +1257,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 18,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1993,
         "caption": "Aoste Edel-Salami* luftgetrocknet, je 150-g-Pckg. (1 kg = 19.93)"
       },
@@ -1551,12 +1284,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 19,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1137,
         "caption": "Bergader Almzeit oder Bavaria blu Weichkäse, versch. Sorten, je 175-g-Pckg. (1 kg = 11.37)"
       },
@@ -1578,12 +1311,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 19,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1127,
         "caption": "Bergader Bergbauern Käse Scheiben versch. Sorten, je 150-g-Pckg. (1 kg = 11.27)"
       },
@@ -1605,12 +1338,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Chaumes oder Saint Albray Classic* frz. Weichkäse, versch. Sorten, je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "1.79"
@@ -1632,12 +1365,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 24,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_volume_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Coca-Cola, Fanta, Sprite oder Mezzo Mix versch. Sorten, teilw. koffeinhaltig, je 12 x 1-l-Fl.-Kasten (1 l = 1.00) zzgl. 3.30 Pfand",
         "printedUnitPriceCents": 100
       },
@@ -1659,12 +1392,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 18,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 397,
         "caption": "Golden Toast American Sandwich je 375-g-Pckg. (1 kg = 3.97)"
       },
@@ -1686,12 +1419,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 18,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Italienische Fenchel-Salami Finocchiona g.g.A.* je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "1.99"
@@ -1712,12 +1445,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 28,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1597,
         "caption": "Knorr Pasta Pot Brokkoli & Käse, je 62-g-Becher (1 kg = 15.97)"
       },
@@ -1737,12 +1470,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 30,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1127,
         "caption": "Landliebe Landkäse sanft-aromatisch Schnittkäse, 48% Fett i.Tr., je 150-g-Pckg. (1 kg = 11.27)"
       },
@@ -1764,12 +1497,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 30,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1047,
         "caption": "Milkana Frischeschale Sahne Schmelzkäse, je 190-g-Pckg. (1 kg = 10.47)"
       },
@@ -1791,12 +1524,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 31,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1298,
         "caption": "Mövenpick Kaffee Der Himmlische gemahlener Bohnenkaffee, je 500-g-Pckg. (1 kg = 12.98)"
       },
@@ -1818,12 +1551,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Oberland Räucherkäse Natur oder Schinken* Schmelzkäse zubereitung, versch. Sorten, je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "0.99"
@@ -1845,12 +1578,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 24,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_volume_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Pepsi versch. Sorten, koffeinhaltig, je 1,25-l-Fl. (1 l = 0.70) zzgl. 0.25 Pfand",
         "printedUnitPriceCents": 70
       },
@@ -1877,12 +1610,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1745,
         "caption": "REWE Bio Geflügel Bratwurst* je 200-g-Pckg. (1 kg = 17.45)"
       },
@@ -1904,12 +1637,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 895,
         "caption": "REWE Bio Hirtenkäse 45% Fett i.Tr., je 200-g-Pckg. (1 kg = 8.95)"
       },
@@ -1931,12 +1664,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 15,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1292,
         "caption": "REWE Bio Mini Berner Würstchen* je 185-g-Pckg. (1 kg = 12.92)"
       },
@@ -1961,12 +1694,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 5,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1830,
         "caption": "REWE Bio Schweine-Bratwurst grob, je 300-g-Pckg. (1 kg = 18.30)"
       },
@@ -1988,12 +1721,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 5,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1516,
         "caption": "REWE Regional Rinder-Hackfleisch* je 250-g-Pckg. (1 kg = 15.16)"
       },
@@ -2013,12 +1746,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Reinert Aspik-Aufschnitt* versch. Sorten, je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "1.29"
@@ -2041,12 +1774,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 12,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1660,
         "caption": "Rotkäppchen Mozzarella Sticks je 150-g-Pckg. (1 kg = 16.60)"
       },
@@ -2066,12 +1799,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 10,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "printedUnitPriceCents": 1106,
         "caption": "Salakis Schafskäse Natur je 180-g-Pckg. (1 kg = 11.06)"
       },
@@ -2093,12 +1826,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Schiller GQB Strohschwein Backleberkäse* versch. Sorten, je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "0.88"
@@ -2121,12 +1854,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Schulte Trapez Salami* Chili, je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "1.99"
@@ -2147,12 +1880,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 6,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_100g_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Stilfser* ital. Schnittkäse, 50% Fett i.Tr., je 100 g",
         "printedQuantity": "100 g",
         "priceLine": "1.79"
@@ -2180,12 +1913,12 @@
       "validFrom": "2026-11-09",
       "validTo": "2026-11-14",
       "pdfPage": 30,
-      "pdfUrl": "https://view.publitas.com/89773/3513262/pdfs/ca6475a4-0ac1-4c1c-aa11-106e90777347.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v1.pdf",
+      "pdfUrl": "https://view.publitas.com/89773/3527950/pdfs/2b733960-1c03-44ab-8f09-2671da8a6912.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27REWE%2520Markt%2520GmbH%2520-%2520rewe_2026_wk46_461921_v2.pdf",
       "sourceUrl": "https://www.rewe.de/angebote/alling/461921/rewe-gilchinger-str-33/",
       "verified": true,
       "verificationMethod": "pdf_1l_price",
       "evidence": {
-        "pdfSha256": "c4e0a2be983cccaef9ecb0ee45d0f2e57ee7cf42025a95187f7c2fe49127a07d",
+        "pdfSha256": "53dfecfdcccadbacd0a51981542d4830ce5cec747edf72959a6dadc2345ab257",
         "caption": "Weihenstephan Haltbare Milch 1,5/3,5% Fett, je 1-l-Pckg. ",
         "printedQuantity": "1 l",
         "priceLine": "1.19"
