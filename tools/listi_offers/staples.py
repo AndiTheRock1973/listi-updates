@@ -2,7 +2,7 @@
 import re
 from product_types import normal
 CATEGORIES={'bread','eggs','yogurt','quark','cream','poultry','pork','fruit','vegetables','rice','flour'}
-FRUIT={'apple':r'\bapfel\b|\bapfel[n]?\b|tafelapfel','banana':r'banane','orange':r'\borange[n]?\b|apfelsine','pear':r'\bbirne[n]?\b','grape':r'\btrauben|weintrauben','kiwi':r'\bkiwi','lemon':r'\bzitrone','mandarin':r'mandarine|clementine','strawberry':r'erdbeer','blueberry':r'heidelbeer|blaubeer','raspberry':r'himbeer','mango':r'\bmango','pineapple':r'\bananas\b','avocado':r'avocado'}
+FRUIT={'apple':r'\bapfel\b|\bapfel[n]?\b|tafelapfel','banana':r'banane','orange':r'\borange[n]?\b|apfelsine','pear':r'\bbirne[n]?\b','grape': r'\b(?:tafel|wein)?trauben\b','kiwi':r'\bkiwi','lemon':r'\bzitrone','mandarin':r'mandarine|clementine','strawberry':r'erdbeer','blueberry':r'heidelbeer|blaubeer','raspberry':r'himbeer','mango':r'\bmango','pineapple':r'\bananas\b','avocado':r'avocado'}
 VEG={'potato':r'kartoffel','tomato':r'tomaten|\btomate\b','cucumber':r'gurke','pepper':r'\bpaprika\b','carrot':r'karotte|mohre|bundmohren','onion':r'zwiebel','garlic':r'knoblauch','zucchini':r'zucchini','broccoli':r'brokkoli|broccoli','cauliflower':r'blumenkohl','mushroom':r'champignon|pilze','lettuce':r'kopfsalat|eisbergsalat|romanasalat|salatherzen|feldsalat','spinach':r'spinat','leek':r'\blauch\b|porree','cabbage':r'weisskohl|rotkohl|wirsing|spitzkohl'}
 
 def text(raw):return re.sub(r'\s+',' ',normal(raw))
