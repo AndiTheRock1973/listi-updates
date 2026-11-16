@@ -1,25 +1,101 @@
 {
   "schemaVersion": 1,
-  "catalogVersion": "2026-11-12-automatic-8617661d77e2",
-  "reviewedOn": "2026-11-12",
-  "lastCheckedOn": "2026-11-12",
-  "generatedAt": "2026-11-12T13:54:43+00:00",
+  "catalogVersion": "2026-11-16-automatic-3e8c5361eb8f",
+  "reviewedOn": "2026-11-16",
+  "lastCheckedOn": "2026-11-16",
+  "generatedAt": "2026-11-16T10:56:56+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter und Kaffee. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
       "state": "ok",
-      "count": 0,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14"
+      "count": 2,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21"
     },
     {
       "market": "Lidl",
       "state": "ok",
-      "count": 0,
-      "validFrom": "2026-11-09",
-      "validTo": "2026-11-14"
+      "count": 1,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21"
     }
   ],
-  "offers": []
+  "offers": [
+    {
+      "id": "93e2b14062e5242890033ebc",
+      "market": "Lidl",
+      "location": "Maisach · Maisacher Straße 61",
+      "title": "COMBINO Nudeln",
+      "brand": "COMBINO",
+      "category": "pasta",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 34,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21",
+      "pdfPage": 1,
+      "pdfUrl": "https://assets.leaflets.schwarz/leaflets/pdfs/01a1c9c3-fbc1-7394-ad19-64f2397aba30/Aktionsprospekt-16-11-2026-21-11-2026-01.pdf",
+      "sourceUrl": "https://www.lidl.de/l/prospekte/aktionsprospekt-16-11-2026-21-11-2026-225480/ar/0?_ab=1&lf=HHZ",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "f79773e42549b95fc6af9d21b165c9ba50bb3ad454cdf42b28c8b324e7098d4a",
+        "printedUnitPriceCents": 68,
+        "caption": "COMBINO Nudeln Je 500g; 1 kg = 0.68"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "cbcf74a6de373304edaf4620",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "DELVERDE Pasta Zu 100% aus Hartwei- zen",
+      "brand": "DELVERDE",
+      "category": "pasta",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 79,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21",
+      "pdfPage": 16,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1422243/1/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1422243",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "13055822175f766ee17a3eacac3c867276f4a4ad136f42faf02aa9865b5e8c94",
+        "printedUnitPriceCents": 158,
+        "caption": "DELVERDE Pasta Zu 100% aus  Hartwei- zen, versch.  Sorten, je 500 g (1 kg =  1.58)"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    },
+    {
+      "id": "9424387062b9a85732a4f705",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "ÖLZ Butter Zopf Mit Honig",
+      "brand": "ÖLZ",
+      "category": "butter",
+      "variants": [],
+      "attributes": [],
+      "priceCents": 249,
+      "quantityGrams": 500,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21",
+      "pdfPage": 14,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1422243/1/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1422243",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "pdfSha256": "13055822175f766ee17a3eacac3c867276f4a4ad136f42faf02aa9865b5e8c94",
+        "printedUnitPriceCents": 498,
+        "caption": "ÖLZ Butter Zopf Mit Honig, je 500 g (1 kg = 4.98) oder"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Packung, Vorrat und Filialverfügbarkeit im Prospekt prüfen."
+    }
+  ]
 }
