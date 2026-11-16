@@ -1,0 +1,50 @@
+diff --git a/tools/listi_offers/more_markets.py b/tools/listi_offers/more_markets.py
+index 839e5fb..2e3de9a 100644
+--- a/tools/listi_offers/more_markets.py
++++ b/tools/listi_offers/more_markets.py
+@@ -266,6 +266,33 @@ def penny_cover_banana(blocks, words, prices, source, bounds, page, sha, width,
+   'note':'Automatisch aus dem offiziellen Prospekt erfasst. Preis je 1 kg loser Ware, kein fester Packungspreis. Zeitraum und Filialverfügbarkeit prüfen.'}
+ 
+ 
++def penny_detached_fruit(raw, blocks, prices, page, box, width, height):
++ """Identify one detached price in a known PENNY fruit layout."""
++ if not (475 <= width <= 478 and 840 <= height <= 844):
++  return None
++ layouts = {
++  2: (r'zespri sungold kiwi\*? kl\. i,? je stuck', (15, 20, 318, 328), (208, 218, 175, 187)),
++  4: (r'helle, kernlose tafeltrauben\*? kl\. i,? je \d+\s*-\s*g-schale \(1 kg\s*=\s*\d+[.,]\d{2}\)',
++      (41, 50, 716, 729), (286, 298, 660, 674)),
++ }
++ if page not in layouts:
++  return None
++ pattern, label_area, price_area = layouts[page]
++ def inside(x, y, area):
++  x_min, x_max, y_min, y_max = area
++  return x_min <= x <= x_max and y_min <= y <= y_max
++ if not inside(*box[:2], label_area) or not re.fullmatch(pattern, staples.text(raw)):
++  return None
++ if sum(bool(re.fullmatch(pattern, staples.text(b['text']))) for b in blocks) != 1:
++  return None
++ matches = [price for price in prices if inside(price.x0, price.y0, price_area)]
++ if len(matches) != 1:
++  return None
++ price = matches[0]
++ x0,y0,x1,y1 = box
++ return (min(x0,price.x0),min(y0,price.y0),max(x1,price.x1),max(y1,price.y1)), matches
++
++
+ def native_collect(pdf:Path, source:c.Source, pages=None):
+  sha=hashlib.sha256(pdf.read_bytes()).hexdigest();offers=[]
+  with fitz.open(pdf) as document:
+@@ -318,6 +345,11 @@ def native_collect(pdf:Path, source:c.Source, pages=None):
+     if len(raw)>800 or c.category_of(raw) is None:continue
+     if c.category_of(raw) in staples.CATEGORIES:
+      found=staple_fields.offer(raw,words+prices,source,page_bounds,number,sha,block['bbox'],prices)
++     if not found and source.market == 'PENNY' and c.page_dates(header, source) == page_bounds:
++      detached=penny_detached_fruit(raw,blocks,prices,number,block['bbox'],page.rect.width,page.rect.height)
++      if detached:
++       box, candidates=detached
++       found=staple_fields.offer(raw,words+prices,source,page_bounds,number,sha,box,candidates)
+      if found:
+       offers.append(found)
+       continue
