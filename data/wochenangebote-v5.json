@@ -1,15 +1,15 @@
 {
   "schemaVersion": 3,
-  "catalogVersion": "2026-11-16-automatic-3e8c5361eb8f",
+  "catalogVersion": "2026-11-16-automatic-75161e4028ec",
   "reviewedOn": "2026-11-16",
   "lastCheckedOn": "2026-11-16",
-  "generatedAt": "2026-11-16T10:56:56+00:00",
+  "generatedAt": "2026-11-16T11:52:24+00:00",
   "coverage": "Automatische Auswahl aus den eingerichteten Händlerquellen: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst, Käse, Brot, Eier, Joghurt, Quark, Sahne, Geflügel, Schweinefleisch, Obst, Gemüse, Reis und Mehl. Unklare und App-Sonderangebote werden ausgelassen. Kein vollständiger Marktvergleich.",
   "sources": [
     {
       "market": "PENNY",
       "state": "ok",
-      "count": 32,
+      "count": 34,
       "validFrom": "2026-11-16",
       "validTo": "2026-11-21"
     },
@@ -1750,6 +1750,33 @@
       "quantityCount": 1
     },
     {
+      "id": "d18af7cb923acdfc8d349eea",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "Helle, kernlose Tafeltrauben* Kl. I",
+      "brand": "Helle, kernlose Tafeltrauben",
+      "category": "fruit",
+      "variants": [
+        "grape"
+      ],
+      "attributes": [],
+      "priceCents": 189,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21",
+      "pdfPage": 4,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1422243/1/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1422243",
+      "verified": true,
+      "verificationMethod": "pdf_text_crosscheck",
+      "evidence": {
+        "caption": "Helle, kernlose Tafeltrauben* Kl. I, je 500-g-Schale (1 kg = 3.78)",
+        "pdfSha256": "13055822175f766ee17a3eacac3c867276f4a4ad136f42faf02aa9865b5e8c94",
+        "printedUnitPriceCents": 378
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen.",
+      "quantityGrams": 500
+    },
+    {
       "id": "343c150f5dfdf88d3f3df498",
       "market": "PENNY",
       "location": "Eichenau · Hauptstraße 17–19",
@@ -2407,6 +2434,35 @@
       },
       "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen.",
       "quantityGrams": 150
+    },
+    {
+      "id": "87fff94f52a731008e74448a",
+      "market": "PENNY",
+      "location": "Eichenau · Hauptstraße 17–19",
+      "title": "ZESPRI SunGold Kiwi* Kl. I, je Stück",
+      "brand": "ZESPRI",
+      "category": "fruit",
+      "variants": [
+        "kiwi"
+      ],
+      "attributes": [],
+      "priceCents": 59,
+      "validFrom": "2026-11-16",
+      "validTo": "2026-11-21",
+      "pdfPage": 2,
+      "pdfUrl": "https://penny-publish.blaetterkatalog.de/frontend/catalogs/1422243/1/pdf/complete.pdf",
+      "sourceUrl": "https://penny-publish.blaetterkatalog.de/frontend/getcatalog.do?catalogId=1422243",
+      "verified": true,
+      "verificationMethod": "pdf_piece_price",
+      "evidence": {
+        "caption": "ZESPRI SunGold Kiwi* Kl. I, je Stück",
+        "pdfSha256": "13055822175f766ee17a3eacac3c867276f4a4ad136f42faf02aa9865b5e8c94",
+        "printedQuantity": "1 Stück",
+        "priceLine": "0.59"
+      },
+      "note": "Automatisch aus dem offiziellen Prospekt erfasst. Sorte, Menge, Zeitraum und Filialverfügbarkeit prüfen.",
+      "quantityUnit": "piece",
+      "quantityCount": 1
     },
     {
       "id": "9424387062b9a85732a4f705",
