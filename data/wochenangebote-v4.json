@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "catalogVersion": "2026-11-23-automatic-8ebec71bc4db",
-  "reviewedOn": "2026-11-23",
-  "lastCheckedOn": "2026-11-23",
-  "generatedAt": "2026-11-23T16:20:15+00:00",
+  "catalogVersion": "2026-11-26-automatic-d9997c0de3ef",
+  "reviewedOn": "2026-11-26",
+  "lastCheckedOn": "2026-11-26",
+  "generatedAt": "2026-11-26T15:30:57+00:00",
   "coverage": "Automatische Auswahl: Pasta, Butter, Kaffee, Toastbrot, Rindfleisch, Milch, Nudelsauce, Cola, Wurst und Käse. Kein vollständiger Marktvergleich.",
   "sources": [
     {
@@ -689,12 +689,12 @@
       "validFrom": "2026-11-23",
       "validTo": "2026-11-28",
       "pdfPage": 10,
-      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/c2ca519b-0df4-4abb-952a-5970b4bc35b5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/9db83a4c-c24b-4e78-8acc-7c238e37a9c6.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw48-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "6062c883b5d1389dde7e1d6e66e66e5710101e877448339aa0b2a193cdcab94f",
+        "pdfSha256": "50aacf54fc511760fa2d7c12377b9db161801cbcd4ab4ba826182bdca4d5d086",
         "printedUnitPriceCents": 1625,
         "caption": "MEINE KÄSETHEKE Appenzeller ® Käse Am Stück; 200-g-Packung; kg-Preis 16.25"
       },
@@ -716,12 +716,12 @@
       "validFrom": "2026-11-27",
       "validTo": "2026-11-28",
       "pdfPage": 24,
-      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/c2ca519b-0df4-4abb-952a-5970b4bc35b5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/9db83a4c-c24b-4e78-8acc-7c238e37a9c6.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw48-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "6062c883b5d1389dde7e1d6e66e66e5710101e877448339aa0b2a193cdcab94f",
+        "pdfSha256": "50aacf54fc511760fa2d7c12377b9db161801cbcd4ab4ba826182bdca4d5d086",
         "printedUnitPriceCents": 996,
         "caption": "MILRAM Käsescheiben Versch. Sorten; je 260-g-Packung; kg-Preis 9.96"
       },
@@ -741,12 +741,12 @@
       "validFrom": "2026-11-23",
       "validTo": "2026-11-28",
       "pdfPage": 11,
-      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/c2ca519b-0df4-4abb-952a-5970b4bc35b5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
+      "pdfUrl": "https://view.publitas.com/73714/3538171/pdfs/9db83a4c-c24b-4e78-8acc-7c238e37a9c6.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27ALDI%2520S%25C3%259CD%2520Prospekt%253A%2520aktuelle%2520Angebote.pdf",
       "sourceUrl": "https://prospekt.aldi-sued.de/kw48-26-op-mp",
       "verified": true,
       "verificationMethod": "pdf_text_crosscheck",
       "evidence": {
-        "pdfSha256": "6062c883b5d1389dde7e1d6e66e66e5710101e877448339aa0b2a193cdcab94f",
+        "pdfSha256": "50aacf54fc511760fa2d7c12377b9db161801cbcd4ab4ba826182bdca4d5d086",
         "printedUnitPriceCents": 994,
         "caption": "MILSANI Käse für den Ofen Versch. Sorten; je 180-g-Packung; kg-Preis 9.94"
       },
